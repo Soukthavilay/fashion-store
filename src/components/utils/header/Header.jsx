@@ -1,16 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {BsSearch, BsCart4} from 'react-icons/bs';
-import {FiUser} from 'react-icons/fi';
 import {MdLogout} from 'react-icons/md'
 import { AiOutlineUser } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { AiOutlineSearch } from "react-icons/ai";
 import { GlobalState } from "../../../GlobalState";
+import { useTranslation } from 'react-i18next';
 
 import '../scss/header.scss';
 import axios from "axios";
+import LanguageSwitcher from "../../LanguageSwitcher";
 
 const Header = () => {
     const state = useContext(GlobalState);
@@ -20,6 +20,7 @@ const Header = () => {
     const [cartCount, setCartCount] = useState(0);
     const [searchKeyword, setSearchKeyword] = useState("");
     const [searchResults, setSearchResults] = useState([]);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const count = cart.reduce((total, item) => total + item.quantity, 0);
@@ -51,7 +52,7 @@ const Header = () => {
                 <Link target="_parent" to='/myInfo' className="user-sign">
                     <label>{userDetail[0].name}</label>
                     <div className="my-account">
-                        My account 
+                    {t('account')} 
                     </div>
                 </Link>
                 <Link to="/" onClick={logoutUser}>
@@ -115,6 +116,7 @@ const Header = () => {
               <label>
                 Technology shop by <strong>Laos company</strong>
               </label>
+              <LanguageSwitcher/>
             </div>
             <div className="header-search header-item">
               <input 
@@ -152,7 +154,7 @@ const Header = () => {
                     <AiOutlineUser className="user-icon"/>
                     <div className="header-right-user_detail">
                       <span>Sign In/Sign Up</span>
-                      <span>My Account <RiArrowDownSLine /></span>
+                      <span>{t('account')} <RiArrowDownSLine /></span>
                     </div>
                   </div>
                 </Link>
