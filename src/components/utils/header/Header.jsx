@@ -114,9 +114,8 @@ const Header = () => {
                 </svg>
               </Link>
               <label>
-                Technology shop by <strong>Laos company</strong>
+                Fashion shop by <strong>Laos company</strong>
               </label>
-              <LanguageSwitcher/>
             </div>
             <div className="header-search header-item">
               <input 
@@ -164,6 +163,7 @@ const Header = () => {
                     <span className="header-cart-count">0</span>
                   </Link>
                 </div>
+                <LanguageSwitcher/>
               </div>
             )}
           </div>

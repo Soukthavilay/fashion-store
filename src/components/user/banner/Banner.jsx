@@ -12,13 +12,13 @@ const Banner = () => {
         <div className="banner">
             <div className='img-slide'>
                 <div className='wrapper'>
-                    <img src="https://res.cloudinary.com/dkiofoako/image/upload/v1683301470/final/apple2_iml2ug.jpg" alt="apple" />
+                    <img src="https://res.cloudinary.com/dkiofoako/image/upload/v1705301546/final/main_banner_fashion_store-30a34858367c682bd975733dcac39ae36eba20e8723637f4e50e7e4a1288da30_fvkzvm.jpg" alt="banner" />
                 </div>
             </div>
         </div>
         <Band/>
         <CategoryItem/>
-        <RecommenderUser/>
+        {/* <RecommenderUser/> */}
         <Recommand/>
         <BestSeller/>
     </>
