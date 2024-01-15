@@ -135,7 +135,7 @@ const BestSeller = () => {
                             </div>
                           </div>
                           <span>sold : {sold}</span>
-                          <Link to={`/detail/${_id}`} className="btn btn--animated btn--primary--white btn--border--blue">
+                          <Link target="_parent" to={`/detail/${_id}`} className="btn btn--animated btn--primary--white btn--border--blue">
                             Buy now
                           </Link>
                         </div>

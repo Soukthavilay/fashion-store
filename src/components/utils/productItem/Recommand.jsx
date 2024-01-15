@@ -149,6 +149,7 @@ const Recommand = () => {
                           </div>
                           <span>sold : {sold}</span>
                           <Link
+                            target="_parent"
                             to={`/detail/${_id}`}
                             className="btn btn--animated btn--primary--white btn--border--blue"
                           >

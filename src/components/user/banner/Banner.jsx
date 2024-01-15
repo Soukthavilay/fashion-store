@@ -12,7 +12,7 @@ const Banner = () => {
         <div className="banner">
             <div className='img-slide'>
                 <div className='wrapper'>
-                    <img src="https://res.cloudinary.com/dkiofoako/image/upload/v1705301546/final/main_banner_fashion_store-30a34858367c682bd975733dcac39ae36eba20e8723637f4e50e7e4a1288da30_fvkzvm.jpg" alt="banner" />
+                    <img src="https://res.cloudinary.com/dkiofoako/image/upload/v1705335481/final/res6c4176a0a2ba724e93fec4b2c5c5bee3fr_myjcbo.jpg" alt="banner" />
                 </div>
             </div>
         </div>

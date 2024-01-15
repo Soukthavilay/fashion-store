@@ -171,6 +171,7 @@ function ProductList() {
                             </div>
                             <span>sold : {item.sold}</span>
                             <Link
+                              target="_parent"
                               to={`/detail/${item._id}`}
                               className="btn btn--animated btn--primary--white btn--border--blue"
                             >

@@ -158,6 +158,7 @@ useEffect(()=>{
                           </div>
                           <span>sold : {item.sold ? item.sold : 0}</span>
                           <Link
+                            target="_parent"
                             to={`/detail/${item._id}`}
                             className="btn btn--animated btn--primary--white btn--border--blue"
                           >

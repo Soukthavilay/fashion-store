@@ -131,6 +131,7 @@ function ProductDetailHeader( detailProduct ) {
             }
           </div>
             <Link
+              target="_parent"
               to={isLogged ? "/order-summary" : "/sign-in"}
               className="btn btn--animated btn--primary--blue btn--border--blue"
               onClick={() => addCart(product,count)}
