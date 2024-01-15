@@ -1,3 +1,10 @@
 {
-    "account": "Tài khoản của tôi"
+    "account": "Tài khoản của tôi",
+    "labe-signIn": "Đăng Nhập",
+    "labe-signUp": "Đăng Ký",
+    "labe-find-product": "Tìm kiếm sản phẩm",
+    "labe-intro": "Thời trang của công ty Lào",
+    "label-category-women": "Phụ Nữ",
+    "label-category-men": "Nam",
+    "label-category-sport": "Đồ thể thao"
 }

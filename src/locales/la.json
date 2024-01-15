@@ -1,3 +1,10 @@
 {
-    "account": "ບັນຊີຂອງຂ້ອຍ"
+    "account": "ບັນຊີຂອງຂ້ອຍ",
+    "labe-signIn": "ລົງຊື່ເຂົ້າໃຊ້",
+    "labe-signUp": "ລົງທະບຽນ",
+    "labe-find-product": "ຄົ້ນຫາ",
+    "labe-intro": "ເສື້ອຜ້າຂອງຄົນລາວ",
+    "label-category-women": "ເສື້ອຜູ້ຍິງ",
+    "label-category-men": "ເສື້ອຜູ້ຊາຍ",
+    "label-category-sport": "ເສື້ອກິລາ"
 }

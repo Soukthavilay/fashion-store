@@ -114,14 +114,14 @@ const Header = () => {
                 </svg>
               </Link>
               <label>
-                Fashion shop by <strong>Laos company</strong>
+              {t('labe-intro')}
               </label>
             </div>
             <div className="header-search header-item">
               <input 
                 type="text" 
                 name="search" 
-                placeholder="Find product..." 
+                placeholder={t('labe-find-product')} 
                 value={searchKeyword}
                 onChange={(e) => setSearchKeyword(e.target.value)}
                 onKeyPress={(e) => {
@@ -152,7 +152,7 @@ const Header = () => {
                   <div className="header-right-user">
                     <AiOutlineUser className="user-icon"/>
                     <div className="header-right-user_detail">
-                      <span>Sign In/Sign Up</span>
+                      <span>{t('labe-signIn')} / {t('labe-signUp')}</span>
                       <span>{t('account')} <RiArrowDownSLine /></span>
                     </div>
                   </div>
