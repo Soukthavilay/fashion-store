@@ -5,11 +5,13 @@ import { GlobalState } from "../../GlobalState";
 import Loading from "../utils/Loading/Loading";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
 
 function LoginForm() {
   const [active, setActive] = useState(false);
   const [loading, setLoading] = useState(false);
   const [registerSuccess, setRegisterSuccess] = useState(false);
+  const { t } = useTranslation();
   const addClass = () => {
     if (!active) setActive(true);
   };
@@ -107,47 +109,47 @@ function LoginForm() {
       >
         <div className="register">
           <form onSubmit={handleRegisterSubmit}>
-            <h1>Create Account</h1>
+            <h1>{t('label-create-account')}</h1>
             <input
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder={t('label-name')}
               onChange={handleRegisterChange}
               value={registerFormData.name}
             />
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={t('label-email')}
               onChange={handleRegisterChange}
               value={registerFormData.email}
             />
             <input
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder={t('label-password')}
               onChange={handleRegisterChange}
               value={registerFormData.password}
             />
             <input
               type="text"
               name="phone"
-              placeholder="Phone"
+              placeholder={t('label-phone-number')}
               onChange={handleRegisterChange}
               value={registerFormData.phone}
             />
             <button type="submit" className="btn btn--animated btn--primary--blue btn--border--blue">
-              Register
+            {t('labe-signUp')}
             </button>
           </form>
         </div>
         <div className="login">
           <form onSubmit={handleLoginSubmit}>
-            <h1>Login</h1>
+            <h1>{t('labe-signIn')}</h1>
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={t('label-email')}
               required
               onChange={handleLoginChange}
               value={loginFormData.email}
@@ -155,7 +157,7 @@ function LoginForm() {
             <input
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder={t('label-password')}
               onChange={handleLoginChange}
               value={loginFormData.password}
               required
@@ -164,23 +166,23 @@ function LoginForm() {
               className="btn btn--animated btn--primary--blue btn--border--blue"
               type="submit"
             >
-              Login
+              {t('labe-signIn')}
             </button>
           </form>
         </div>
         <div className="overlay-container">
           <div className="overlay">
             <div className="overlay-left">
-              <h1>Welcome Back!</h1>
+              <h1>{t('label-welcome-back')}</h1>
               <button id="login" onClick={removeClass}>
-                Log In
+              {t('labe-signIn')}
               </button>
             </div>
             <div className="overlay-right">
-              <h1>Hello, Friend</h1>
-              <p>Enter your personal detail and start the journey with us</p>
+              <h1>{t('label-hello')}</h1>
+              <p>{t('label-enter-personal-info')}</p>
               <button id="register" onClick={addClass}>
-                Register
+              {t('labe-signUp')}
               </button>
             </div>
           </div>

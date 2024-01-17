@@ -1,17 +1,18 @@
 import React from 'react'
 import '../scss/footer.scss'
+import { useTranslation } from 'react-i18next';
 
 export const Footer = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="footer">
         <div className="footer-container">
           <div className="subscription">
             <div className="subscription-left">
-              <h4>FIND OUT BEFORE ANYONE</h4>
+              <h4>{t('label-learn-more')}</h4>
               <p>
-                Receive exclusive offers and news that will brighten up your
-                day!
+              {t('label-exclusive-offers')}
               </p>
             </div>
             <div className="subscription-right">
@@ -20,7 +21,7 @@ export const Footer = () => {
                 type="submit"
                 className="btn btn--animated btn--primary--white btn--border--blue"
               >
-                Sign me up
+                {t('label-sign-me-up')}
               </button>
             </div>
           </div>

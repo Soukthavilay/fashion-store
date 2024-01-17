@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import StarRatings from 'react-star-ratings';
 import ProductReviewDetail from './ProductReviewDetail';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 function ProductReviews(detailProduct) {
   const dtProduct = detailProduct.detailProduct;
   const idProduct = dtProduct._id;
   const [result, setResult] = useState(0);
   const [feedback, setFeedback] = useState([]);
-  const [showHideComment, setShowHideComment] = useState(false);
-  const [selectStar, setSelectStar] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(2);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (idProduct) {
@@ -27,16 +27,6 @@ function ProductReviews(detailProduct) {
     }
   }, [idProduct]);
 
-  const handleToggle = () => {
-    setShowHideComment(!showHideComment);
-  };
-
-  const changeRating = (newRating) => {
-    setSelectStar({
-      rating: newRating,
-    });
-  };
-
   useEffect(() => {
     if (feedback && feedback.length) {
       var total = 0;
@@ -49,22 +39,16 @@ function ProductReviews(detailProduct) {
 
   const feedbackTotal = feedback?.length || 0;
 
-  const handleLoadMore = () => {
-    setItemsPerPage(itemsPerPage + 8);
-  };
-
-  // Tính toán chỉ mục của phản hồi trong trang hiện tại
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = feedback.slice(indexOfFirstItem, indexOfLastItem);
 
-  // Tạo mảng các số trang
+
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(feedback.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 
-  // Chuyển đổi trang
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -72,10 +56,10 @@ function ProductReviews(detailProduct) {
   return (
     <>
       <div className="product-reviews">
-        <h3 className="product-reviews-title">Đánh giá sản phẩm</h3>
+        <h3 className="product-reviews-title">{t('label-review-product')}</h3>
         <div className="product-reviews-summary">
         <div className="reviews-summary-item">
-            <h4>Average rating</h4>
+            <h4>{t('label-review-product-score')}</h4>
             <span className="average-star">{result} / {feedbackTotal}</span>
             <StarRatings
               name="rating"
@@ -84,25 +68,8 @@ function ProductReviews(detailProduct) {
               starDimension="16px"
               starSpacing="2px"
             />
-            <span className="total-comment">Review</span>
+            <span className="total-comment">{t('label-review')}</span>
           </div>
-          <div className="reviews-summary-item">
-            <p>Have you used this product?</p>
-            <button
-              className="btn btn--animated btn--primary--blue btn--border--blue"
-              onClick={handleToggle}
-            >
-              Submit a review
-            </button>
-          </div>
-        </div>
-
-        <div
-          className={
-            showHideComment ? 'comment-container show' : 'comment-container hide'
-          }
-        >
-          {/* Mã code biểu mẫu đánh giá */}
         </div>
 
         {feedback?.length ? (
@@ -123,14 +90,9 @@ function ProductReviews(detailProduct) {
                 ))}
               </div>
             )}
-            {/* {itemsPerPage < feedback.length && (
-              <button className="btn btn--load-more" onClick={handleLoadMore}>
-                Xem thêm
-              </button>
-            )} */}
           </>
         ) : (
-          <p>No reviews available.</p>
+          <p>{t('label-not-review')}</p>
         )}
       </div>
     </>

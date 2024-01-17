@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import axios from "axios";
 import StarRatings from "react-star-ratings";
+import { useTranslation } from 'react-i18next';
 
 // import required modules
 import { Navigation } from "swiper";
@@ -19,6 +20,7 @@ const BestSeller = () => {
   const [data,setData] = useState();
   const [savePd,setSavePd] = useState([]);
   const [rating,setRating] = useState();
+  const { t } = useTranslation();
   useEffect(()=>{
     try {
       const getProducts = async()=>{
@@ -80,7 +82,7 @@ const BestSeller = () => {
   return (
     <>
       <div className="featured-product">
-        <p className="featured-product-title">Best Sellers</p>
+        <p className="featured-product-title">{t('label-best-sellers')}</p>
         <div className="container-list">
           <Swiper
             spaceBetween={50}
@@ -136,7 +138,7 @@ const BestSeller = () => {
                           </div>
                           <span>sold : {sold}</span>
                           <Link target="_parent" to={`/detail/${_id}`} className="btn btn--animated btn--primary--white btn--border--blue">
-                            Buy now
+                            {t('label-buy-now')}
                           </Link>
                         </div>
                       </div>
@@ -148,8 +150,8 @@ const BestSeller = () => {
         </div>
       </div>
       <div className="about-us">
-        <h2>About Lao Tech</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, possimus iusto, accusamus omnis explicabo provident aliquid, aspernatur repellat sit magnam error quos nulla! Consequatur minima quidem obcaecati? Tempora, eos quia!</p>
+        <h2>{t('label-company-intro')}</h2>
+        <p>{t('label-exclusive-offers')}</p>
       </div>
     </>
   );

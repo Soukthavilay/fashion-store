@@ -17,6 +17,7 @@ import {Link} from 'react-router-dom';
 import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 const Recommand = () => {
   const state = useContext(GlobalState);
@@ -25,7 +26,7 @@ const Recommand = () => {
   const [rating,setRating] = useState();
   let [updatePrice , setUpdatePrice] = useState();
   const [loading,setLoading] = useState(false);
-  console.log(products)
+  const { t } = useTranslation();
   useEffect(() => {
     if(products){
     const fetchProductData = async () => {
@@ -79,7 +80,7 @@ const Recommand = () => {
   return (
     <>
       <div className="featured-product">
-        <p className="featured-product-title">New Products</p>
+        <p className="featured-product-title">{t('label-new-product')}</p>
         <div className="container-list">
           {loading ? <LoadingSmall/> : <Swiper
             spaceBetween={50}
@@ -153,7 +154,7 @@ const Recommand = () => {
                             to={`/detail/${_id}`}
                             className="btn btn--animated btn--primary--white btn--border--blue"
                           >
-                            Buy Now
+                            {t('label-buy-now')}
                           </Link>
                         </div>
                       </div>
