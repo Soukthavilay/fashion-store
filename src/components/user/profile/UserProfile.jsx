@@ -2,11 +2,12 @@ import "../../utils/scss/profile.scss";
 import MyOrders from './MyOrders';
 import { GlobalState } from "../../../GlobalState";
 import { useContext } from "react";
-import OrderDetail from "./OrderDetail";
 import ProfileOption from "./ProfileOption";
 import Loading from "../../utils/Loading/Loading";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useTranslation } from 'react-i18next';
+
 function UserProfile() {
   const state = useContext(GlobalState);
   const [myOrder] = state.userAPI.order;
@@ -14,6 +15,7 @@ function UserProfile() {
   const [selectedStatus, setSelectedStatus] = useState("");
   const [sortType, setSortType] = useState("newest");
   const [searchTerm, setSearchTerm] = useState('');
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (myOrder.length === 0 || myOrder === undefined) {
@@ -67,10 +69,9 @@ function UserProfile() {
       <div className="profile-content">
         <div className="orders">
           <div className="order-wrapper">
-            <h2 className="orders-title">My Orders</h2>
+            <h2 className="orders-title">{t("label-my-orders")}</h2>
             <div className="order-search">
-              <input type="text" name="search" placeholder="Find product..." value={searchTerm}
-                      onChange={handleSearchChange}/>
+              <input type="text" name="search" placeholder={t("labe-find-product")} value={searchTerm} onChange={handleSearchChange}/>
             </div>
             <div className="order-select">
               <select className="select-status"
@@ -78,20 +79,20 @@ function UserProfile() {
                 id="selectStatus"
                 value={selectedStatus}
                 onChange={handleStatusChange}>
-                  <option value="">All Orders</option>
-                  <option value="Pending">Order Pending</option>
-                  <option value="Confirmed">Order Confirmed</option>
-                  <option value="Shipping">Order Shipping</option>
-                  <option value="Paid">Order Paid</option>
-                  <option value="Cancelled">Order Cancelled</option>
-                  <option value="Cancel Requested">Cancel Requested</option>
-                  <option value="Delivered">Order Delivered</option>
+                  <option value="">{t("label-all-orders")}</option>
+                  <option value="Pending">{t("label-order-pending")}</option>
+                  <option value="Confirmed">{t("label-order-confirmed")}</option>
+                  <option value="Shipping">{t("label-order-shipping")}</option>
+                  <option value="Paid">{t("label-order-paid")}</option>
+                  <option value="Cancelled">{t("label-order-cancelled")}</option>
+                  <option value="Cancel Requested">{t("label-cancel-requested")}</option>
+                  <option value="Delivered">{t("label-order-delivered")}</option>
               </select>
               <select className="select-status" name="sort" id="short-time" onChange={handleSortTypeChange}>
-                <option value="newest">Newest</option>
-                <option value="oldest">Oldest</option>
-                <option value="expensive">Expensive Price</option>
-                <option value="cheap">Cheap Price</option>
+                <option value="newest">{t("label-newest")}</option>
+                <option value="oldest">{t("label-oldest")}</option>
+                <option value="expensive">{t("label-expensive-price")}</option>
+                <option value="cheap">{t("label-cheap-price")}</option>
               </select>
             </div>
           </div>

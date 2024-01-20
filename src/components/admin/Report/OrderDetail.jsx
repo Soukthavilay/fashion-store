@@ -1,11 +1,11 @@
-import React from "react";
 import { useLocation } from "react-router-dom";
 import "../scss/order-detail.scss"
+import { useTranslation } from 'react-i18next';
 
 const OrderDetail = () => {
   const location = useLocation();
   const orderItem = location.state.order;
-  console.log(orderItem);
+  const { t } = useTranslation();
   const createdAtDateTime = new Date(orderItem.createdAt);
   const currentDateTime = new Date();
   const minutesDifference = Math.floor(
@@ -77,7 +77,7 @@ const OrderDetail = () => {
                   <span className="subtitle">{formattedDateTime}</span>
                 </div>
                 <div className="order-summary-content_item">
-                  <span className="title">Subtotal</span>
+                  <span className="title">{t("label-subtotal")}</span>
                   <span className="subtitle">$ {orderItem.total}</span>
                 </div>
                 <div className="order-summary-content_item">

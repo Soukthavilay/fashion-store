@@ -1,21 +1,22 @@
-import React from 'react'
 import StepTracker from './StepTracker'
 import {Link} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function CheckoutConfirm() {
+  const { t } = useTranslation();
   return (
     <div className="checkout-confirm">
       <StepTracker current={3} />
       
-      <h3>Order has been received</h3>
+      <h3>{t("label-order-has-created")}</h3>
 
-      <p>Delivery time is about 4-5 days</p>
+      <p>{t("label-order-has-shipping")}</p>
 
-      <h3>Thank you for trusting our purchase!</h3>
+      <h3>{t("label-order-thank-you")}</h3>
 
-      <Link to='/'>
+      <Link to='/' target='_parent'>
         <button className="btn btn--animated btn--primary--blue btn--border--blue">
-          Continue to shopping
+        {t("label-continues-product")}
         </button>
       </Link>
     </div>

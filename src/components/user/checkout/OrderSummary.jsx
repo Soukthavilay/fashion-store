@@ -3,12 +3,14 @@ import StepTracker from './StepTracker';
 import { GlobalState } from "../../../GlobalState"
 import axios from "axios"
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function OrderSummary() {
   const state = useContext(GlobalState);
     const [cart, setCart] = state.userAPI.cart;
     const [token] = state.token;
     const [total, setTotal] = useState(0);
+    const { t } = useTranslation();
     useEffect(() =>{
         const getTotal = () =>{
             const total = cart.reduce((prev, item) => {
@@ -57,12 +59,13 @@ function OrderSummary() {
       setCart(newCart);
       addToCart(newCart);
     };
+    console.log(cart)
   return (
     <div className="order-summary">
       <StepTracker current={1} />
-      <h2 className="order-summary-title">Cart Information</h2>
+      <h2 className="order-summary-title">{t("label-cart-info")}</h2>
       {total ? <>
-        <p className="order-summary-subtitle">Check the products in your cart</p>
+        <p className="order-summary-subtitle">{t("label-check-your-cart")}</p>
 
       <div className="order-summary-product">
         {cart.map((item) => {
@@ -74,6 +77,7 @@ function OrderSummary() {
                   <h3>{item.title}</h3>
                 </div>
               </div>
+              <span style={{ backgroundColor: item.colors.colorCode }}>{item.colors.colorName}</span>
               <div className="product-detail-quantity">
                 <div className="product-quantity">
                   <button
@@ -95,7 +99,7 @@ function OrderSummary() {
                     className="remove-btn"
                     onClick={() => removeItem(item._id)}
                   >
-                    Delete
+                    {t("label-delete")}
                   </button>
                 </div>
               </div>
@@ -112,7 +116,7 @@ function OrderSummary() {
       </div>
 
       <div className="total">
-        <b>Total</b>: &nbsp;
+        <b>{t("label-total")}</b>: &nbsp;
         {new Intl.NumberFormat("en-US", {
           style: "currency",
           currency: "USD",
@@ -122,17 +126,17 @@ function OrderSummary() {
 
       <div className="checkout-buttons">
         <button className="btn btn--animated btn--primary--blue btn--border--blue">
-          <Link to='/'>Continue to product</Link>
+          <Link target="_parent" to='/'>{t("label-continues-product")}</Link>
         </button>
         <button className="btn btn--animated btn--primary--white btn--border--blue">
-          <Link to="/shipping-detail">NEXT</Link>
+          <Link target="_parent" to="/shipping-detail">{t("label-continues")}</Link>
         </button>
       </div>
       </> : <>
         <div className="cart-no-have">
-          <h2 className='order-summary-title'>Not have product select</h2>
+          <h2 className='order-summary-title'>{t("label-not-have-pd")}</h2>
           <button className="btn btn--animated btn--primary--white btn--border--blue">
-            <Link to="/">Continues to Shop</Link>
+            <Link target="_parent" to="/">{t("label-continues-product")}</Link>
           </button>
         </div>
       </>}

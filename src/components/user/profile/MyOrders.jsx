@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 function MyOrders(order) {
   const myOrder = order.order;
   const [total,setTotal] = useState(0);
+  const { t } = useTranslation();
   useEffect(()=>{
     if(myOrder){
       myOrder.listOrderItems?.map((item) =>{
@@ -22,25 +24,25 @@ function MyOrders(order) {
   let content;
   switch (myOrder && myOrder.status) {
     case 'Delivered':
-      content = <span className="order-confirmed order-status">{myOrder.status}</span>;
+      content = <span className="order-confirmed order-status">{t("label-order-delivered")}</span>;
       break;
     case 'Cancelled':
-      content = <span className="order-cancelled order-status">{myOrder.status}</span>;
+      content = <span className="order-cancelled order-status">{t("label-order-cancelled")}</span>;
       break;
     case 'Cancel Requested':
-      content = <span className="order-cancelled order-status">{myOrder.status}</span>;
+      content = <span className="order-cancelled order-status">{t("label-cancel-requested")}</span>;
       break;
     case 'Shipping':
-      content = <span className="order-confirmed order-status">{myOrder.status}</span>;
+      content = <span className="order-confirmed order-status">{t("label-order-shipping")}</span>;
       break;
     case 'Confirmed':
-      content = <span className="order-confirmed order-status">{myOrder.status}</span>;
+      content = <span className="order-confirmed order-status">{t("label-order-confirmed")}</span>;
       break;
     case 'Pending':
-      content = <span className="order-pending order-status">{myOrder.status}</span>;
+      content = <span className="order-pending order-status">{t("label-order-pending")}</span>;
       break;
     case 'Paid':
-      content = <span className="order-confirmed order-status">{myOrder.status}</span>;
+      content = <span className="order-confirmed order-status">{t("label-order-paid")}</span>;
       break;  
     default:
       content = <div></div>;
@@ -72,7 +74,7 @@ function MyOrders(order) {
                   {orderItem.title}
                 </Link>
               </h3>
-              <span className="product-type">{orderItem.feature.color}</span>
+              {/* <span className="product-type">{orderItem.feature.color}</span> */}
             </div>
             <div className="order-product-price">
               {total.toLocaleString("en-US", {
@@ -82,7 +84,7 @@ function MyOrders(order) {
             </div>
 
             <div className="order-product-quantity">
-              Qty: {orderItem.quantity}
+              {t("label-qty")}: {orderItem.quantity}
             </div>
           </div>
         ))}

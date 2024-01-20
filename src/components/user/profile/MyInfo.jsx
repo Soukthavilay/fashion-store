@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import ProfileOption from "./ProfileOption";
 import { GlobalState } from "../../../GlobalState";
 import { useContext } from "react";
@@ -6,8 +6,8 @@ import PasswordField from "./PasswordField";
 import { FaEdit } from "react-icons/fa";
 import axios from "axios";
 import ErrorPopup from "../../utils/NotFound/PopupError";
-import Popup from "reactjs-popup";
 import SuccessPopup from "../../utils/NotFound/SuccessPopup";
+import { useTranslation } from 'react-i18next';
 
 function MyInfo() {
   const state = useContext(GlobalState);
@@ -25,7 +25,7 @@ function MyInfo() {
   const [updateError, setUpdateError] = useState("");
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const { t } = useTranslation();
 
   const handlePasswordChange = async (e) => {
     e.preventDefault();
@@ -139,13 +139,10 @@ function MyInfo() {
     <div className="profile">
       <ProfileOption />
       <div className="profile-content user-profile">
-        <h2>User info</h2>
+        <h2>{t("label-user-info")}</h2>
         <div className="profile-content-item image-user">
           <div className="profile-image">
             <img src={images ? images : userDetail.avatar} alt="user-image" width="150px" />
-            {/* <button className="edit-button" onClick={handleUpload}>
-              <FaEdit />
-            </button> */}
             <div className="uploadImg">
               <input
                 type="file"
@@ -160,7 +157,7 @@ function MyInfo() {
           </div>
         </div>
         <div className="profile-content-item">
-          <span className="title">Name</span>
+          <span className="title">{t("label-name")}</span>
           <input
             type="text"
             className="subtitle"
@@ -170,7 +167,7 @@ function MyInfo() {
           />
         </div>
         <div className="profile-content-item">
-          <span className="title">Email</span>
+          <span className="title">{t("label-email")}</span>
           <input
             type="text"
             className="subtitle"
@@ -180,19 +177,19 @@ function MyInfo() {
           />
         </div>
         <div className="profile-content-item">
-          <span className="title">Password</span>
+          <span className="title">{t("label-password")}</span>
           {isEdit ? (
             <form onSubmit={handlePasswordChange}>
               <PasswordField
                 inputName="oldPwd"
-                placeholder="Type old password..."
+                placeholder={t("label-password")}
                 autocomplete="current-password"
                 value={oldPassword}
                 onChange={(e) => setOldPassword(e.target.value)}
               />
               <PasswordField
                 inputName="newPwd"
-                placeholder="Type new password..."
+                placeholder={t("label-password")}
                 autocomplete="new-password"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
@@ -204,7 +201,7 @@ function MyInfo() {
               )}
               <div className="form-action">
                 <button type="submit" className="update-pwd-btn">
-                  Change password
+                {t("label-change-password")}
                 </button>
                 <button
                   className="cancel-change-pwd"
@@ -212,7 +209,7 @@ function MyInfo() {
                     setIsEdit(false);
                   }}
                 >
-                  Cancel
+                  {t("label-cancel")}
                 </button>
               </div>
             </form>
@@ -223,13 +220,13 @@ function MyInfo() {
                 className="update-pwd-btn"
                 onClick={() => setIsEdit(true)}
               >
-                Edit Password
+                {t("label-edit-password")}
               </button>
             </div>
           )}
         </div>
         <div className="profile-content-item">
-          <span className="title">Phone number</span>
+          <span className="title">{t("label-phone-number")}</span>
           <input
             type="text"
             className="subtitle"
@@ -240,7 +237,7 @@ function MyInfo() {
         </div>
         <div className="profile-content-item">
           <button className="update-pwd-btn" onClick={updateUser}>
-            Update
+          {t("label-update")}
           </button>
         </div>
         {error && <ErrorPopup errorMessage={error} />}
