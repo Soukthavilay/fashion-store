@@ -3,9 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import StarRatings from "react-star-ratings";
-import moment from 'moment';
 
-// import required modules
 import { Navigation } from "swiper";
 
 import "../scss/recommend.scss";
@@ -16,6 +14,7 @@ import {Link} from 'react-router-dom';
 import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 const RelatedItem = (categories) => {
   const state = useContext(GlobalState);
@@ -24,6 +23,7 @@ const RelatedItem = (categories) => {
   const [savePd,setSavePd] = useState([]);
   const [rating,setRating] = useState();
   const [pdCate,setPdCate] = useState([]);
+  const { t } = useTranslation();
   useEffect(() => {
     if(products){
     const fetchProductData = async () => {
@@ -83,7 +83,7 @@ const RelatedItem = (categories) => {
   return (
     <>
       <div className="featured-product">
-        <p className="featured-product-title">Related Products</p>
+        <p className="featured-product-title">{t("label-rel-products")}</p>
         <div className="container-list">
           <Swiper
             spaceBetween={50}
@@ -151,13 +151,13 @@ const RelatedItem = (categories) => {
                               <span>({totalRating.total ? totalRating.total : 0})</span>
                             </div>
                           </div>
-                          <span>sold : {sold}</span>
+                          <span>{t("label-sold")} : {sold}</span>
                           <Link
                             target="_parent"
                             to={`/detail/${_id}`}
                             className="btn btn--animated btn--primary--white btn--border--blue"
                           >
-                            Buy Now
+                            {t("label-buy-now")}
                           </Link>
                         </div>
                       </div>

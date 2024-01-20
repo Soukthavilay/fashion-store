@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react'
 import ProductDetailBody from '../../utils/productDetail/ProductDetailBody';
 import ProductDetailHeader from '../../utils/productDetail/ProductDetailHeader';
 import ProductReviews from '../../utils/productDetail/ProductReviews';
-import Recommand from "../../utils/productItem/Recommand";
 import { GlobalState } from '../../../GlobalState';
 import { useParams } from 'react-router-dom';
 

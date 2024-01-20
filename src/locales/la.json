@@ -54,5 +54,9 @@
     "label-review-product-score": "ຄະແນນສະເລ່ຍ",
     "label-review": "ຣີວິວ",
     "label-not-review": "ຍັງບໍ່ໄດ້ຮັບການຣີວິວ",
-    "label-specifications": "ຂໍ້ມູນຈໍາເພາະ"
+    "label-specifications": "ຂໍ້ມູນຈໍາເພາະ",
+    "label-rel-products": "ຜະ​ລິດ​ຕະ​ພັນ​ທີ່​ກ່ຽວ​ຂ້ອງ",
+    "label-sold": "ຂາຍແລ້ວ",
+    "label-in-stock": "ໃນຄັງ",
+    "label-out-of-stock": "ໝົດ"
 }
