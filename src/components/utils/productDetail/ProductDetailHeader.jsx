@@ -17,6 +17,7 @@ function ProductDetailHeader( detailProduct ) {
   const { t } = useTranslation();
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSizes, setSelectedSizes] = useState([]);
+  const [dataSize,setDataSize] = useState({});
 
   useEffect(()=>{
     if(idProduct){
@@ -35,7 +36,6 @@ function ProductDetailHeader( detailProduct ) {
 
   }
   useEffect(()=>{
-    
     if (feedback && feedback.length){
       var total = 0;
       feedback?.map((FeedbackItem)=>{
@@ -47,11 +47,12 @@ function ProductDetailHeader( detailProduct ) {
 
   const handleColorSelection = (color) => {
     setSelectedColor(color);
-    // Assuming color.sizes is an array of size objects
     setSelectedSizes(color.sizes);
   };
+  const handleSizeSelection = (size) => {
+    setDataSize(size);
+  };
 
-  console.log(product)
   return (
     <>
       <div className="detail-header">
@@ -67,7 +68,7 @@ function ProductDetailHeader( detailProduct ) {
               {new Intl.NumberFormat("en-US", {
                 style: "currency",
                 currency: "USD",
-              }).format(product.price)}
+              }).format(dataSize.price ? dataSize?.price : product?.price)}
             </h4>
             <div className="product-ratings">
               <StarRatings
@@ -96,17 +97,17 @@ function ProductDetailHeader( detailProduct ) {
               +
             </button>
           </div>
-          {product.amount > 0 ? (
-            <span className="on-stock stock">{t("label-in-stock")} / {product.amount} </span>
-          ) : (
+          {dataSize.quantity < 0 && product.color.length && product ? (
             <span className="out-stock stock">{t("label-out-of-stock")}</span>
+          ) : (
+            <span className="on-stock stock">{t("label-in-stock")} / {dataSize.quantity} </span>
           )}
 
           <h3 className='color-header'>{t('label-color')} : {product.colors.length}</h3>
           <div className="product-color">
             {product.colors?.map((color) => (
-              <div key={color._id} className={`product-color-item ${selectedColor === color ? 'selected' : ''}`} onClick={() => handleColorSelection(color)}>
-                <span style={{ backgroundColor: color.colorCode }}></span>
+              <div key={color._id} className="product-color-item" onClick={() => handleColorSelection(color)}>
+                <span className={`${selectedColor === color ? 'active' : ''}`} style={{ backgroundColor: color.colorCode }}></span>
               </div>
             ))}
           </div>
@@ -116,8 +117,8 @@ function ProductDetailHeader( detailProduct ) {
               <>
                 <div className="size-list">
                 {selectedSizes.map((size) => (
-                  <div key={size._id} className="size-item">
-                    {size.sizeName}
+                  <div key={size._id} className="size-item" onClick={() => handleSizeSelection(size)}>
+                    <span className={`${dataSize.sizeName === size.sizeName ? 'active' : ''}`}>{size.sizeName}</span>
                   </div>
                 ))}
               </div>
@@ -141,7 +142,7 @@ function ProductDetailHeader( detailProduct ) {
               target="_parent"
               to={isLogged ? "/order-summary" : "/sign-in"}
               className="btn btn--animated btn--primary--blue btn--border--blue"
-              onClick={() => addCart(product,count)}
+              onClick={() => addCart(product, count, dataSize, selectedColor)}
             >
               {t('label-buy-now')}
             </Link>

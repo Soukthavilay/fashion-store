@@ -53,15 +53,16 @@ function UserAPI(token){
         }
     },[token]);
 
-    const addCart = async (product,count) => {
+    const addCart = async (product,count, dataSize, selectedColor) => {
         if (!isLogged) return alert('Please login to continue buying');
         if(product.amount === 0) return alert('This type not have in stock');
         const check = cart.every(item =>{
             return item._id !== product._id
         });
         if(check){
-            setCart([...cart, {...product, quantity:count}]);
-            await axios.patch('http://localhost:5000/user/addcart',{cart:[...cart, {...product, quantity: count}]},{
+            const updatedColor = { ...selectedColor, sizes: dataSize };
+            setCart([...cart, {...product, quantity:count, colors: updatedColor, price:updatedColor.sizes.price}]);
+            await axios.patch('http://localhost:5000/user/addcart',{cart:[...cart, {...product, quantity: count, colors: updatedColor,price:updatedColor.sizes.price}]},{
                 headers:{
                     Authorization: token
                 }
