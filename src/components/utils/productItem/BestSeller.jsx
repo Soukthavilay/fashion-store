@@ -113,7 +113,7 @@ const BestSeller = () => {
                       </div>
                       <div className="product-item-detail">
                         <h3 className="product-name">
-                          <Link to={`/detail/${_id}`}>
+                          <Link target='_parent' to={`/detail/${_id}`}>
                             <span>{title}</span>
                           </Link>
                         </h3>

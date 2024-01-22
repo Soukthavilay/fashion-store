@@ -115,7 +115,7 @@ const Recommand = () => {
                       </div>
                       <div className="product-item-detail">
                         <h3 className="product-name">
-                          <Link to={`/detail/${_id}`}>{title}</Link>
+                          <Link target='_parent' to={`/detail/${_id}`}>{title}</Link>
                         </h3>
                         <div className="product-detail">
                           <div className="product-detail-meta">

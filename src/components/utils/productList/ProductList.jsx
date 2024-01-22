@@ -136,7 +136,7 @@ function ProductList() {
                         </div>
                         <div className="product-item-detail">
                           <h3 className="product-name">
-                            <Link to={`/detail/${item._id}`}>{item.title}</Link>
+                            <Link target='_parent' to={`/detail/${item._id}`}>{item.title}</Link>
                           </h3>
                           <div className="product-detail">
                             <div className="product-detail-meta">
