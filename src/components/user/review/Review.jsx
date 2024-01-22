@@ -3,6 +3,8 @@ import { GlobalState } from "../../../GlobalState";
 import { useParams, useHistory } from 'react-router-dom';
 import React, { useContext, useEffect, useState } from "react";
 import Loading from "../../utils/Loading/Loading";
+import { useTranslation } from 'react-i18next';
+
 import axios from "axios";
 const Review = (product_id) => {
     const state = useContext(GlobalState);
@@ -15,7 +17,8 @@ const Review = (product_id) => {
     const [productID, setProductID] = useState('');
     const [content, setContent] = useState('');
     const history = useHistory();
-    const idProduct = product_id.productID
+    const idProduct = product_id.productID;
+    const { t } = useTranslation();
 
     useEffect(() => {
         if (idProduct) {
@@ -95,7 +98,7 @@ const Review = (product_id) => {
     };
     return (
         <>
-            <h3>Write a product review</h3>
+            <h3>{t("label-review-writing")}</h3>
 
             <div className="comment-form">
                 {/* <input type="text" placeholder="Name" /> */}
@@ -113,14 +116,14 @@ const Review = (product_id) => {
                     id="contentUser"
                     cols="30"
                     rows="5"
-                    placeholder="Write comment about product..."
+                    placeholder={t("label-review-comment")}
                     onChange={handleChangeInput}
                 // value={content}
                 ></textarea>
                 <div className="uploadImg">
                 <div className="upload">
                     <input type="file" name="file" id="file_up" onChange={handleUpload} />
-                    <label htmlFor="file_up" className="upload-img-btn">Upload files</label>
+                    <label htmlFor="file_up" className="upload-img-btn">{t("label-upload-files")}</label>
                     {loading ? (
                     <div id="file_img">
                         <Loading />
@@ -134,7 +137,7 @@ const Review = (product_id) => {
                 </div>
                 </div>
                 <button type="button" onClick={handleFeedback} className="btn btn--animated btn--primary--blue btn--border--blue">
-                    Submit a review
+                    {t("label-submit-a-review")}
                 </button>
             </div>
         </>

@@ -104,6 +104,11 @@
     "label-cancel-request": "ສົ່ງຄຳຂໍຍົກເລິກ",
     "label-newest":"ໃຫມ່",
     "label-all-orders":"ອໍເດີທັງຫມົດ",
-    "label-cancel-preparing": "ຄໍາສັ່ງກໍາລັງກະກຽມ"
+    "label-cancel-preparing": "ຄໍາສັ່ງກໍາລັງກະກຽມ",
+    "label-review-writing": "ຂຽນການຣີວິວຜະລິດຕະພັນ",
+    "label-review-comment": "ຂຽນການຄວາມຄິດເຫັນກ່ຽວກັບຜະລິດຕະພັນ",
+    "label-check-order": "ກວດສອບຄໍາສັ່ງ",
+    "label-check-order-detail": "ລາຍລະອຽດການຈັດສົ່ງ",
+    "label-check-order-success": "ຄໍາສັ່ງສໍາເລັດ"
     
 }

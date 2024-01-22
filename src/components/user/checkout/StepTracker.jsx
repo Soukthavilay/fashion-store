@@ -1,7 +1,8 @@
-import React from 'react'
 import '../../utils/scss/checkout.scss'
+import { useTranslation } from 'react-i18next';
 
 function StepTracker({ current }) {
+  const { t } = useTranslation();
   const className = (step) =>
     current === step ? "is-active-step" : step < current ? "is-done-step" : "";
 
@@ -13,7 +14,7 @@ function StepTracker({ current }) {
             <div className="checkout-header-icon">
               <h4 className="checkout-header-step">1</h4>
             </div>
-            <h6 className="checkout-header-subtitle">Check Order</h6>
+            <h6 className="checkout-header-subtitle">{t("label-check-order")}</h6>
           </div>
         </li>
         <li className={`checkout-header-list ${className(2)}`}>
@@ -21,23 +22,15 @@ function StepTracker({ current }) {
             <div className="checkout-header-icon">
               <h4 className="checkout-header-step">2</h4>
             </div>
-            <h6 className="checkout-header-subtitle">Shipment Details</h6>
+            <h6 className="checkout-header-subtitle">{t("label-check-order-detail")}</h6>
           </div>
         </li>
-        {/* <li className={`checkout-header-list ${className(3)}`}>
-          <div className="checkout-header-item">
-            <div className="checkout-header-icon">
-              <h4 className="checkout-header-step">3</h4>
-            </div>
-            <h6 className="checkout-header-subtitle">Payment Method</h6>
-          </div>
-        </li> */}
         <li className={`checkout-header-list ${className(3)}`}>
           <div className="checkout-header-item">
             <div className="checkout-header-icon">
               <h4 className="checkout-header-step">3</h4>
             </div>
-            <h6 className="checkout-header-subtitle">Successful order</h6>
+            <h6 className="checkout-header-subtitle">{t("label-check-order-success")}</h6>
           </div>
         </li>
       </ul>

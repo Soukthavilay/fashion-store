@@ -105,5 +105,10 @@
     "label-cancel-request": "Yêu cầu hủy",
     "label-newest":"Mới nhất",
     "label-all-orders":"Tất cả đơn hàng",
-    "label-cancel-preparing": "đơn hàng đang chuẩn bị"
+    "label-cancel-preparing": "đơn hàng đang chuẩn bị",
+    "label-review-writing": "Viết đánh giá sản phẩm",
+    "label-review-comment": "Viết bình luận về sản phẩm",
+    "label-check-order": "Kiểm tra đơn hàng",
+    "label-check-order-detail": "Chi tiết đơn hàng",
+    "label-check-order-success": "Kiểm tra thành công"
 }
