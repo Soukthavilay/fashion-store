@@ -11,6 +11,31 @@
         transform: translate(-50%, -50%);
         min-width: 600px;
         height: 80vh;
+        .feature-product{
+          .feature-colors, .feature-sizes{
+            legend{
+              margin-bottom: 20px;
+            }
+            div{
+              label{
+                display: grid;
+                grid-template-columns: repeat(2 , 1fr);
+                grid-template-rows: auto;
+                flex-direction: row-reverse;
+                margin-bottom: 10px;
+                input {
+                  margin-bottom: 0px;
+                }
+              }
+              .size-properties{
+                input {
+                  width: unset;
+                  padding: unset;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
