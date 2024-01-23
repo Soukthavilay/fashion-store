@@ -124,7 +124,7 @@ function ProductList() {
                     return (
                       <div style={{height: "fit-content"}} className="product-item" key={item._id}>
                         <div className="product-item-image">
-                          <Link to={`/detail/${item._id}`}>
+                          <Link target='_parent' to={`/detail/${item._id}`}>
                             <img src={item.images.url} alt={"product-image"} />
                           </Link>
                           {item.discountPercentage && item.discountExpiration ? 

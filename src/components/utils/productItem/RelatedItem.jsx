@@ -105,7 +105,7 @@ const RelatedItem = (categories) => {
                   <SwiperSlide key={_id}>
                     <div className="product-item">
                       <div className="product-item-image">
-                        <Link to={`/detail/${_id}`}>
+                        <Link target='_parent' to={`/detail/${_id}`}>
                           <img src={images.url} alt={images.url} />
                         </Link>
                         {discountPercentage && discountExpiration ? 

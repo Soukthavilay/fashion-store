@@ -6,17 +6,18 @@ import '../scss/createProduct.scss'
 import { useContext, useState } from 'react';
 import axios from 'axios';
 import SuccessPopup from '../../utils/NotFound/SuccessPopup';
+
+
 const initialState = {
-    _id: '',
-    title: '',
-    description: "",
-    band: '',
-    category: '',
-    price: 20,
-    amount: 30,
+  title: "",
+  description: "",
+  price: 98000,
+  images: {},
+  colors: [],
 }
 
 const Products = () => {
+
     const state = useContext(GlobalState);
     const [isAdmin] = state.userAPI.isAdmin;
     const [product, setProduct] = useState(initialState);
@@ -56,30 +57,68 @@ const Products = () => {
                     'content-type': 'multipart/form-data',
                 },
             });
-
             setImages(res.data);
         } catch (error) {
             console.log(error.response.data.msg);
         }
     }
+
     const handleChangeInput = (e) => {
         const { name, value } = e.target;
         setProduct({ ...product, [name]: value });
     }
+
+    const handleColorChange = (colorIndex, field, value) => {
+      const updatedColors = [...product.colors];
+      updatedColors[colorIndex] = {
+        ...updatedColors[colorIndex],
+        [field]: value
+      };
+      setProduct({
+        ...product,
+        colors: updatedColors
+      });
+    };
+
+
+    const handleSizeChange = (colorIndex, sizeIndex, field, value) => {
+      const updatedColors = [...product.colors];
+      updatedColors[colorIndex].sizes[sizeIndex] = {
+        ...updatedColors[colorIndex].sizes[sizeIndex],
+        [field]: value
+      };
+      setProduct({
+        ...product,
+        colors: updatedColors
+      });
+    };
+
+
+    const handleAddColor = () => {
+      setProduct({
+        ...product,
+        colors: [...product.colors, { colorName: "", colorCode: "", sizes: [] }]
+      });
+    };
+
+
+    const handleAddSize = (colorIndex) => {
+      const updatedColors = [...product.colors];
+      updatedColors[colorIndex].sizes.push({ sizeName: "", quantity: 0, price: 0 });
+      setProduct({
+        ...product,
+        colors: updatedColors
+      });
+    };
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          if(product.category === '' || product.band === ''){
-            setError('Please select a category and band');
+          if(product.category === '' || product.band === '' || product.colors.length === 0 || !images){
+            setError('Please field data product');
           } else {
-            const result = {
-              title: product.title,
-              description: product.description,
-              band: product.band,
-              category: product.category,
-              price: product.price,
-          }
-          await axios.post("http://localhost:5000/api/products", { ...result, images });
+          await axios.post("http://localhost:5000/api/products", { ...product, images });
           setCallback(!callback);
           setError("");
           setAlert("Created Product Success");
@@ -209,33 +248,60 @@ const Products = () => {
                         />
                       </div>
                       <div className="feature-product">
-                        <fieldset className='feature-colors'>
-                            <legend>Choose your colors:</legend>
-                            <div>
-                                <label>
-                                    <input type="checkbox" id="Red" name="color" value="#D04848" />
-                                    Red
-                                </label>
+                      {product.colors.map((color, colorIndex) => (
+                        <div key={colorIndex}>
+                          <label>
+                            Color Name:
+                            <input
+                              type="text"
+                              value={color.colorName || ''}
+                              onChange={(e) => handleColorChange(colorIndex, 'colorName', e.target.value)}
+                            />
+                          </label>
+                          <label>
+                            Color Code:
+                            <input
+                              type="text"
+                              value={color.colorCode || ''}
+                              onChange={(e) => handleColorChange(colorIndex, 'colorCode', e.target.value)}
+                            />
+                          </label>
+
+                          {color.sizes.map((size, sizeIndex) => (
+                            <div key={sizeIndex}>
+                              <label>
+                                Size Name:
+                                <input
+                                  type="text"
+                                  value={size.sizeName || ''}
+                                  onChange={(e) => handleSizeChange(colorIndex, sizeIndex, 'sizeName', e.target.value)}
+                                />
+                              </label>
+                              <label>
+                                Quantity:
+                                <input
+                                  type="number"
+                                  value={size.quantity || 0}
+                                  onChange={(e) => handleSizeChange(colorIndex, sizeIndex, 'quantity', parseInt(e.target.value, 10))}
+                                />
+                              </label>
+                              <label>
+                                Price:
+                                <input
+                                  type="number"
+                                  value={size.price || 0}
+                                  onChange={(e) => handleSizeChange(colorIndex, sizeIndex, 'price', parseInt(e.target.value, 10))}
+                                />
+                              </label>
                             </div>
-                        </fieldset>
-                        <div className='feature-sizes'>
-                            <fieldset className='feature-colors'>
-                                <legend>Choose your sizes:</legend>
-                                <div>
-                                    <label>
-                                        <input type="checkbox" id="sizeS" name="size" value="S" />
-                                        S
-                                    </label>
-                                    <div className='size-properties'>
-                                        - Quantity:
-                                        <input type="number" name="quantityS" />
-                                        Price:
-                                        <input type="number" name="priceS" />
-                                    </div>
-                                </div>
-                            </fieldset>
+                          ))}
+
+                          <button className='button btn btn--primary--white btn--border--blue' style={{ marginBottom: "10px" }} type="button" onClick={() => handleAddSize(colorIndex)}>Add Size</button>
                         </div>
-                    </div>
+                      ))}
+
+                      <button className='button btn btn--primary--white btn--border--blue' type="button" style={{ marginBottom: "10px" }} onClick={handleAddColor}>Add Color</button>
+                      </div>
                       <button
                         type="submit"
                         className="btn btn--animated btn--primary--blue btn--border--blue"
