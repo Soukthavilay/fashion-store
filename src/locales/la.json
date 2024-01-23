@@ -114,10 +114,18 @@
         "taek":"moun"
     },
     "categoryTitles":{
-
+        "65ae67ef8b38bd5b6c4f22de": "T-shirt",
+        "65ae67f88b38bd5b6c4f22e2": "Polo Shirt",
+        "65ae680f8b38bd5b6c4f22e6": "Casual Pants",
+        "65ae681a8b38bd5b6c4f22ea": "Jeans",
+        "65ae68298b38bd5b6c4f22ee": "Dress Shirt",
+        "65ae6b104b4dc368f0898b12": "Shorts",
+        "65ae6b204b4dc368f0898b16": "Underwear",
+        "65ae6b354b4dc368f0898b1a": "Knitwear",
+        "65ae6b404b4dc368f0898b1e": "Outerwear"
     },
     "productDescription":{
-        
+
     }
     
 }

@@ -1,20 +1,29 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import { useTranslation } from 'react-i18next';
 
 function CategoriesAPI() {
     const [categories, setCategories] = useState([])
     const [callback, setCallback] = useState(false)
+    const [language, setLanguage] = useState('la');
+    const { t } = useTranslation();
 
     useEffect(() =>{
         const getCategories = async () =>{
             const res = await axios.get('http://localhost:5000/api/category')
-            setCategories(res.data)
+            const cateTitleTranslation = res.data.map((cate) => ({
+                ...cate,
+                name: t(`categoryTitles.${cate._id}`),
+              }));
+            console.log(cateTitleTranslation)
+            setCategories(cateTitleTranslation)
         }
         getCategories()
-    },[callback])
+    },[callback,t])
     return {
         categories: [categories, setCategories],
-        callback: [callback, setCallback]
+        callback: [callback, setCallback],
+        language: [language, setLanguage]
     }
 }
 

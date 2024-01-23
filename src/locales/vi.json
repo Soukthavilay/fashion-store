@@ -113,5 +113,16 @@
     "label-check-order-success": "Kiểm tra thành công",
     "productTitles":{
         "taek":"lal"
+    },
+    "categoryTitles":{
+        "65ae67ef8b38bd5b6c4f22de": "Áo Thun",
+        "65ae67f88b38bd5b6c4f22e2": "Áo Polo",
+        "65ae680f8b38bd5b6c4f22e6": "Quần CASUAL",
+        "65ae681a8b38bd5b6c4f22ea": "Quần JEAN",
+        "65ae68298b38bd5b6c4f22ee": "Áo Sơ Mi",
+        "65ae6b104b4dc368f0898b12": "Quần Short",
+        "65ae6b204b4dc368f0898b16": "Đồ Mặc Trong",
+        "65ae6b354b4dc368f0898b1a": "Đồ Nỉ",
+        "65ae6b404b4dc368f0898b1e": "Đồ Mặc Ngoài"
     }
 }
