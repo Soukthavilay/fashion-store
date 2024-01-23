@@ -12,17 +12,24 @@ function ProductDetail() {
   const params = useParams();
   const state = useContext(GlobalState);
   const [products] = state.productsAPI.products;
+  const [bands] = state.BandAPI.bands;
+  const [categories] = state.categoriesAPI.categories;
   const [detailProduct, setDetailProduct] = useState([]);
 
   useEffect(()=>{
-    if(params.id){
-      products.forEach((product)=>{
-        if(product._id === params.id){
-          setDetailProduct(product);
+    const foundProduct = products.find((product) => product._id === params.id);
+    if (foundProduct) {
+        const foundBand = bands.find((band) => band._id === foundProduct.band);
+        const foundCategory = categories.find((category) => category._id === foundProduct.category);
+        if (foundBand && foundCategory) {
+          setDetailProduct({
+            ...foundProduct,
+            band: foundBand.name,
+            category: foundCategory.name,
+          });
         }
-      })
     }
-  },[params.id, products]);
+  },[params.id, products,categories,bands]);
 
   if (detailProduct.length === 0) return null;
   return (
