@@ -109,6 +109,15 @@
     "label-review-comment": "ຂຽນການຄວາມຄິດເຫັນກ່ຽວກັບຜະລິດຕະພັນ",
     "label-check-order": "ກວດສອບຄໍາສັ່ງ",
     "label-check-order-detail": "ລາຍລະອຽດການຈັດສົ່ງ",
-    "label-check-order-success": "ຄໍາສັ່ງສໍາເລັດ"
+    "label-check-order-success": "ຄໍາສັ່ງສໍາເລັດ",
+    "productTitles":{
+        "taek":"moun"
+    },
+    "categoryTitles":{
+
+    },
+    "productDescription":{
+        
+    }
     
 }

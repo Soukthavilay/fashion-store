@@ -18,6 +18,20 @@ function ProductDetailHeader( detailProduct ) {
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [dataSize,setDataSize] = useState({});
+  const [bands] = state.BandAPI.bands;
+  const [categories] = state.categoriesAPI.categories;
+  const [newName, setNewName] = useState({});
+
+  useEffect(() =>{
+      const foundBand = bands.find((band) => band._id === product.band);
+      const foundCategory = categories.find((category) => category._id === product.category);
+      if (foundBand && foundCategory) {
+        setNewName({
+          band: foundBand.name,
+          category: foundCategory.name,
+        });
+      }
+  },[bands,categories,product])
 
   useEffect(()=>{
     if(idProduct){
@@ -60,9 +74,9 @@ function ProductDetailHeader( detailProduct ) {
           <img src={product.images.url} alt={product.images.url} />
         </div>
         <div className="detail-header-right">
-          <h3>{product.band}</h3>
+          <h3>{newName.band}</h3>
           <h3 className="product-name">{product.title}</h3>
-          <span>{product.category}</span>
+          <span>{newName.category}</span>
           <div className="product-price" style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
             <h4 className="product-price">
               {new Intl.NumberFormat("en-US", {

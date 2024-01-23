@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
+
 
 function ProductsAPI() {
     const [products, setProducts] = useState([]);
@@ -9,6 +11,9 @@ function ProductsAPI() {
     const [search, setSearch] = useState('');
     const [page, setPage] = useState(1);
     const [result, setResult] = useState(0);
+    const [language, setLanguage] = useState('la');
+    
+    const { t } = useTranslation();
 
     useEffect(() => {
     const getProducts = async () => {
@@ -17,11 +22,15 @@ function ProductsAPI() {
           page * 40
         }&${category}&${sort}&title[regex]=${search}`
         );
-        setProducts(res.data.products);
+        const translatedProducts = res.data.products.map((product) => ({
+          ...product,
+          title: t(`productTitles.${product.title}`),
+        }));
+        setProducts(translatedProducts);
         setResult(res.data.result);
     };
     getProducts();
-    }, [callback, category, sort, search, page]);
+    }, [callback, category, sort, search, page,t]);
 
     return {
     products: [products, setProducts],
@@ -31,6 +40,7 @@ function ProductsAPI() {
     search: [search, setSearch],
     page: [page, setPage],
     result: [result, setResult],
+    language: [language, setLanguage],
     };
 }
 
