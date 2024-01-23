@@ -111,6 +111,14 @@
     "label-check-order": "Kiểm tra đơn hàng",
     "label-check-order-detail": "Chi tiết đơn hàng",
     "label-check-order-success": "Kiểm tra thành công",
+    "label-sorry": "Xin lỗi bạn yêu. Vui lòng chọn danh mục khác vì danh mục này chưa sẵn sàng",
+    "label-price-cheep":"Giao hàng chi phí thấp",
+    "label-cash":"Thanh toán khi giao hàng",
+    "label-free":"Hộp quà tặng miễn phí",
+    "label-option1":"Từ 20.000 đồng",
+    "label-option2":"Đặt hàng trước trả tiền sau",
+    "label-option3":"Liên hệ nếu bạn muốn",
+    "label-option4":"Chọn hộp quà miễn phí",
     "productTitles":{
         "taek":"lal"
     },

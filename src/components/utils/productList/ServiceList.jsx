@@ -3,8 +3,10 @@ import { RiTruckLine } from "react-icons/ri";
 import { BsCashStack } from "react-icons/bs";
 import { AiOutlineGift } from "react-icons/ai";
 import { RiCustomerService2Line } from "react-icons/ri";
+import { useTranslation } from 'react-i18next';
 
 function ServiceList() {
+  const { t } = useTranslation();
   return (
     <div className="service-list">
       <div className="service-list-item">
@@ -12,8 +14,8 @@ function ServiceList() {
           <RiTruckLine />
         </div>
         <div className="service-list-item_content">
-          <h3>Low cost delivery</h3>
-          <span>From 20,000 VND</span>
+          <h3>{t("label-price-cheep")}</h3>
+          <span>{t("label-option1")}</span>
         </div>
       </div>
       <div className="service-list-item">
@@ -21,8 +23,8 @@ function ServiceList() {
           <BsCashStack />
         </div>
         <div className="service-list-item_content">
-          <h3>Cash on delivery</h3>
-          <span>Order first pay later</span>
+          <h3>{t("label-cash")}</h3>
+          <span>{t("label-option2")}</span>
         </div>
       </div>
       <div className="service-list-item">
@@ -30,8 +32,8 @@ function ServiceList() {
           <AiOutlineGift />
         </div>
         <div className="service-list-item_content">
-          <h3>Free Gift Box</h3>
-          <span>Select gift box free</span>
+          <h3>{t("label-free")}</h3>
+          <span>{t("label-option3")}</span>
         </div>
       </div>
       <div className="service-list-item">
@@ -40,7 +42,7 @@ function ServiceList() {
         </div>
         <div className="service-list-item_content">
           <h3>24/7</h3>
-          <span>Contact if you want</span>
+          <span>{t("label-option4")}</span>
         </div>
       </div>
     </div>

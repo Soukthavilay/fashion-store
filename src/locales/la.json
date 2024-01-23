@@ -110,6 +110,14 @@
     "label-check-order": "ກວດສອບຄໍາສັ່ງ",
     "label-check-order-detail": "ລາຍລະອຽດການຈັດສົ່ງ",
     "label-check-order-success": "ຄໍາສັ່ງສໍາເລັດ",
+    "label-sorry": "ຂໍໂທດທີ່ຮັກ. ກະລຸນາເລືອກປະເພດອື່ນເພາະວ່າອັນນີ້ຍັງບໍ່ພ້ອມ",
+    "label-price-cheep":"ຄ່າສົ່ງ",
+    "label-cash":"ຊໍາລະຕາມການຈັດສົ່ງ",
+    "label-free":"ກ່ອງຂອງຂວັນຟຣີ",
+    "label-option1":"ຈາກ 20,000 ດົ່ງ",
+    "label-option2":"ສັ່ງດຽວນີ້, ຈ່າຍພາຍຫຼັງ",
+    "label-option3":"ຕິດຕໍ່ຖ້າຫາກວ່າທ່ານຕ້ອງການ",
+    "label-option4":"ເລືອກກ່ອງຂອງຂວັນຟຣີ",
     "productTitles":{
         "taek":"moun"
     },

@@ -8,6 +8,7 @@ import axios from "axios";
 import Loading from "../Loading/Loading";
 import ServiceList from "./ServiceList";
 import SideBar from "./SideBar";
+import { useTranslation } from 'react-i18next';
 
 function ProductList() {
   const state = useContext(GlobalState);
@@ -20,6 +21,7 @@ function ProductList() {
   const [pdcate,setPdcate] = useState();
   const [loading,setLoading] = useState(false);
   const [savePd,setSavePd] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(()=>{
     if(params.id){
@@ -136,7 +138,7 @@ function ProductList() {
                         </div>
                         <div className="product-item-detail">
                           <h3 className="product-name">
-                            <Link target='_parent' to={`/detail/${item._id}`}>{item.title}</Link>
+                            <Link target='_parent' to={`/detail/${item._id}`}>{t(`productTitles.${item.title}`)}</Link>
                           </h3>
                           <div className="product-detail">
                             <div className="product-detail-meta">
@@ -169,13 +171,13 @@ function ProductList() {
                                 <span>({totalRating.total ? totalRating.total : 0})</span>
                               </div>
                             </div>
-                            <span>sold : {item.sold}</span>
+                            <span>{t("label-sold")} : {item.sold}</span>
                             <Link
                               target="_parent"
                               to={`/detail/${item._id}`}
                               className="btn btn--animated btn--primary--white btn--border--blue"
                             >
-                              Buy now
+                              {t("label-buy-now")}
                             </Link>
                           </div>
                         </div>
@@ -189,7 +191,7 @@ function ProductList() {
     <>
       <div className="product-list-banner">
         <img
-          src="https://res.cloudinary.com/dkiofoako/image/upload/v1685333973/PBL/Apple-iPhone-14-iPhone-14-Plus-5up-hero-220907_Full-Bleed-Image.jpg.xlarge_t3xlcx.jpg"
+          src="https://res.cloudinary.com/dkiofoako/image/upload/v1705335481/final/res6c4176a0a2ba724e93fec4b2c5c5bee3fr_myjcbo.jpg"
           alt="apple"
         />
       </div>
@@ -201,7 +203,7 @@ function ProductList() {
             <Loading />
           : 
             <>
-            {pdcate === undefined || pdcate.length === 0 ? <><div className="service-list">Sorry dear. please choose another category because this one is not ready</div></> : 
+            {pdcate === undefined || pdcate.length === 0 ? <><div className="service-list">{t("label-sorry")}</div></> : 
               <HasProduct/>
             }
             </>
