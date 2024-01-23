@@ -25,9 +25,9 @@ const Band = () => {
         <ul>
           {bandList.map((band) => (
             <li className="band-list-li" key={band._id}>
-              <Link to={`/product-list/${band._id}`}>
+              {/* <Link to={`/product-list/${band._id}`}>
                 <img src={band.logo ? band.logo.url : ""} alt={band.name} />
-              </Link>
+              </Link> */}
             </li>
           ))}
         </ul>
