@@ -3,8 +3,6 @@ import { GlobalState } from '../../../GlobalState';
 import { useContext, useEffect, useState } from 'react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import axios from 'axios';
-import ErrorPopup from '../../utils/NotFound/PopupError';
-import Loading from '../../utils/Loading/Loading';
 import SuccessPopup from '../../utils/NotFound/SuccessPopup';
 import ConfirmPopup from '../../utils/NotFound/ConfirmPopup'
 
@@ -15,7 +13,6 @@ const ProductRow = ( productShow ) => {
   const product = productShow.productShow;
   const [newNameCate, setNewNameCate] = useState();
   const public_id = product.images.public_id;
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [alert,setAlert] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
@@ -71,7 +68,7 @@ const ProductRow = ( productShow ) => {
 
   return (
     <>
-      <Link to={`/admin/edit_product/${product._id}`}>
+      <Link target='_parent' to={`/admin/edit_product/${product._id}`}>
         <div className="products-row">
           <button className="cell-more-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-more-vertical">

@@ -10,6 +10,24 @@
     margin-top: 32px;
   }
 
+  .feature-product{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    .feature-product-item-big{
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .feature-product-item {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        label{
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
   .uploadImg {
     width: 450px;
     margin: auto;

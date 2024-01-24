@@ -4,7 +4,6 @@ import axios from "axios"
 import { useContext, useEffect, useState } from "react"
 import "../scss/edit-product.scss"
 import Loading from "../../utils/Loading/Loading"
-import DatePicker from 'react-datepicker';
 
 const EditProduct = () => {
     const state = useContext(GlobalState);
@@ -18,30 +17,11 @@ const EditProduct = () => {
     const [loading,setLoading] = useState(false);
     const [edit,setEdit] = useState({
         _id: '',
-        title: '',
+        title: "",
         description: "",
-        band: '',
-        category: '',
-        price: 0,
-        amount: 0,
-        discountPercentage: 0,
-        discountExpiration: null,
-        feature: {
-            color: '',
-            typeOf: '',
-            SSDStorage: '',
-            processor: '',
-            graphicSeries: '',
-            operatingSystem: '',
-            keyboardLanguage: '',
-            hardDiscType: '',
-            ram: '',
-            inches: '',
-            storage: '',
-            batteries: '',
-            connectivities: '',
-            sim: ''
-        }
+        price: 98000,
+        images: {},
+        colors: [],
     })
     const param = useParams();
     useEffect(()=>{
@@ -80,6 +60,42 @@ const EditProduct = () => {
         const { name, value } = e.target;
         setEdit({ ...edit, [name]: value });
     }
+    const handleColorChange = (colorIndex, field, value) => {
+        const updatedColors = [...edit.colors];
+        updatedColors[colorIndex] = {
+          ...updatedColors[colorIndex],
+          [field]: value
+        };
+        setEdit({
+          ...edit,
+          colors: updatedColors
+        });
+    };
+    const handleSizeChange = (colorIndex, sizeIndex, field, value) => {
+        const updatedColors = [...edit.colors];
+        updatedColors[colorIndex].sizes[sizeIndex] = {
+          ...updatedColors[colorIndex].sizes[sizeIndex],
+          [field]: value
+        };
+        setEdit({
+          ...edit,
+          colors: updatedColors
+        });
+      };
+      const handleAddColor = () => {
+        setEdit({
+          ...edit,
+          colors: [...edit.colors, { colorName: "", colorCode: "", sizes: [] }]
+        });
+      };
+      const handleAddSize = (colorIndex) => {
+        const updatedColors = [...edit.colors];
+        updatedColors[colorIndex].sizes.push({ sizeName: "", quantity: 0, price: 0 });
+        setEdit({
+          ...edit,
+          colors: updatedColors
+        });
+      };
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -114,6 +130,7 @@ const EditProduct = () => {
     const styleUpload = {
         display: images ? 'block' : 'none',
       };
+    console.log(edit);
   return (
     <>
         <div className="edit_product">
@@ -163,33 +180,6 @@ const EditProduct = () => {
                 />
                 </div>
                 <div className="row">
-                <input
-                    type="text"
-                    name="discountPercentage"
-                    id="discountPercentage"
-                    value={edit.discountPercentage || ''}
-                    onChange={handleChangeInput}
-                    placeholder="discountPercentage"
-                    />
-                </div>
-                <div className="row">
-                    <DatePicker
-                        selected={edit.discountExpiration ? new Date(edit.discountExpiration) : null}
-                        onChange={date => setEdit({ ...edit, discountExpiration: date })}
-                        placeholderText="Discount Expiration"
-                        className="datepicker-input"
-                    />
-                </div>
-                <div className="row">
-                {/* <input
-                    type="text"
-                    name="band"
-                    id="band"
-                    required
-                    value={edit.band}
-                    onChange={handleChangeInput}
-                    placeholder="Band"
-                /> */}
                 <select name="band" value={edit.band ? edit.band : "no have"} onChange={handleChangeInput}>
                     <option>Band</option>
                     {bands.map((band)=>{
@@ -224,163 +214,64 @@ const EditProduct = () => {
                     placeholder="Price"
                 />
                 </div>
-                <div className="row">
-                <input
-                    type="text"
-                    name="amount"
-                    id="amount"
-                    required
-                    value={edit.amount}
-                    onChange={handleChangeInput}
-                    placeholder="Amount"
-                />
-                </div>
                 <div className="feature-product">
-                <label htmlFor="feature">Feature</label>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="color"
-                    id="color"
-                    value={edit.feature.color ? edit.feature.color : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="Color"
-                    />
-                </div>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="typeOf"
-                    id="typeOf"
-                    value={edit.feature.typeOf ? edit.feature.typeOf : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="typeOf"
-                    />
-                </div>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="SSDStorage"
-                    id="SSDStorage"
-                    value={edit.feature.SSDStorage ? edit.feature.SSDStorage : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="SSD Storage"
-                    />
-                </div>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="processor"
-                    id="processor"
-                    value={edit.feature.processor ? edit.feature.processor : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="Processor"
-                    />
-                </div>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="graphicSeries"
-                    id="graphicSeries"
-                    value={edit.feature.graphicSeries ? edit.feature.graphicSeries : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="Graphic Series"
-                    />
-                </div>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="operatingSystem"
-                    id="operatingSystem"
-                    value={edit.feature.operatingSystem ? edit.feature.operatingSystem : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="Operating System"
-                    />
-                </div>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="keyboardLanguage"
-                    id="keyboardLanguage"
-                    value={edit.feature.keyboardLanguage ? edit.feature.keyboardLanguage : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="Keyboard Language"
-                    />
-                </div>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="hardDiscType"
-                    id="hardDiscType"
-                    value={edit.feature.hardDiscType ? edit.feature.hardDiscType : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="Hard Disc Type"
-                    />
-                </div>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="ram"
-                    id="ram"
-                    value={edit.feature.ram ? edit.feature.ram : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="Ram"
-                    />
-                </div>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="inches"
-                    id="inches"
-                    value={edit.feature.inches ? edit.feature.inches : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="Inches"
-                    />
-                </div>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="storage"
-                    id="storage"
-                    value={edit.feature.storage ? edit.feature.storage : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="Storage"
-                    />
-                </div>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="batteries"
-                    id="batteries"
-                    value={edit.feature.batteries ? edit.feature.batteries : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="Batteries"
-                    />
-                </div>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="connectivities"
-                    id="connectivities"
-                    value={edit.feature.connectivities ? edit.feature.connectivities : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="Connectivities"
-                    />
-                </div>
-                <div className="row">
-                    <input
-                    type="text"
-                    name="sim"
-                    id="sim"
-                    value={edit.feature.sim ? edit.feature.sim : "null"}
-                    onChange={handleChangeInput}
-                    placeholder="Sim"
-                    />
-                </div>
-                </div>
+                    {edit.colors.map((color, colorIndex) => (
+                    <div className="feature-product-item-big" key={colorIndex}>
+                        <label>
+                        Color Name:
+                        <input
+                            type="text"
+                            value={color.colorName || ''}
+                            onChange={(e) => handleColorChange(colorIndex, 'colorName', e.target.value)}
+                        />
+                        </label>
+                        <label>
+                        Color Code:
+                        <input
+                            type="text"
+                            value={color.colorCode || ''}
+                            onChange={(e) => handleColorChange(colorIndex, 'colorCode', e.target.value)}
+                        />
+                        </label>
+
+                        {color.sizes.map((size, sizeIndex) => (
+                        <div className="feature-product-item" key={sizeIndex}>
+                            <label>
+                            Size Name:
+                            <input
+                                type="text"
+                                value={size.sizeName || ''}
+                                onChange={(e) => handleSizeChange(colorIndex, sizeIndex, 'sizeName', e.target.value)}
+                            />
+                            </label>
+                            <label>
+                            Quantity:
+                            <input
+                                type="number"
+                                value={size.quantity || 0}
+                                onChange={(e) => handleSizeChange(colorIndex, sizeIndex, 'quantity', parseInt(e.target.value, 10))}
+                            />
+                            </label>
+                            <label>
+                            Price:
+                            <input
+                                type="number"
+                                value={size.price || 0}
+                                onChange={(e) => handleSizeChange(colorIndex, sizeIndex, 'price', parseInt(e.target.value, 10))}
+                            />
+                            </label>
+                        </div>
+                        ))}
+
+                        <button className='button btn btn--primary--white btn--border--blue' style={{ marginBottom: "10px" }} type="button" onClick={() => handleAddSize(colorIndex)}>Add Size</button>
+                    </div>
+                    ))}
+
+                    </div>
+                    <button className='button btn btn--primary--white btn--border--blue' type="button" style={{ marginBottom: "10px" }} onClick={handleAddColor}>Add Color</button>
                 <button
                 type="submit"
-                className="btn btn--animated btn--primary--blue btn--border--blue"
+                className="btn btn--primary--blue btn--border--blue"
                 >
                 Update
                 </button>
