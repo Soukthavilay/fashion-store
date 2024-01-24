@@ -15,7 +15,6 @@ function CategoriesAPI() {
                 ...cate,
                 name: t(`categoryTitles.${cate._id}`),
               }));
-            console.log(cateTitleTranslation)
             setCategories(cateTitleTranslation)
         }
         getCategories()
