@@ -66,8 +66,10 @@ useEffect(() => {
     };
     axios.post('http://localhost:5000/api/paypal', { ...orderNow })
       .then(response => {
-        window.open(response.data.url, '_blank');
-        window.location.href = "/checkout-confirm";
+        if(response.data.url){
+          window.open(response.data.url, '_blank');
+          window.location.href = "/checkout-confirm";
+        }
       })
       .catch(error => {
         if (error.response) {
