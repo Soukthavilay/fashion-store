@@ -23,9 +23,9 @@ function DashboardSummary({statistics}) {
             <BsCash />
             <h2>Revenue</h2>
           </div>
-          <p>{totalRevenue ? totalRevenue?.toLocaleString("en-US", {
+          <p>{totalRevenue ? totalRevenue?.toLocaleString("vi-VN", {
             style: "currency",
-            currency: "USD",
+            currency: "VND",
           }) : 0}</p>
         </div>
       </div>

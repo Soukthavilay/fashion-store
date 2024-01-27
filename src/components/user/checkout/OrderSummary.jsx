@@ -59,7 +59,6 @@ function OrderSummary() {
       setCart(newCart);
       addToCart(newCart);
     };
-    console.log(cart)
   return (
     <div className="order-summary">
       <StepTracker current={1} />
@@ -104,9 +103,9 @@ function OrderSummary() {
                 </div>
               </div>
               <div className="product-detail-price">
-                {new Intl.NumberFormat("en-US", {
+                {new Intl.NumberFormat("vi-VN", {
                   style: "currency",
-                  currency: "USD",
+                  currency: "VND",
                   maximumFractionDigits: 3,
                 }).format(item.price * item.quantity)}
               </div>
@@ -117,9 +116,9 @@ function OrderSummary() {
 
       <div className="total">
         <b>{t("label-total")}</b>: &nbsp;
-        {new Intl.NumberFormat("en-US", {
+        {new Intl.NumberFormat("vi-VN", {
           style: "currency",
-          currency: "USD",
+          currency: "VND",
           maximumFractionDigits: 3,
         }).format(total)}
       </div>

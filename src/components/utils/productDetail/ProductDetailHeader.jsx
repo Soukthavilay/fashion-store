@@ -79,9 +79,9 @@ function ProductDetailHeader( detailProduct ) {
           <span>{newName.category}</span>
           <div className="product-price" style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
             <h4 className="product-price">
-              {new Intl.NumberFormat("en-US", {
+              {new Intl.NumberFormat("vi-VN", {
                 style: "currency",
-                currency: "USD",
+                currency: "VND",
               }).format(dataSize.price ? dataSize?.price : product?.price)}
             </h4>
             <div className="product-ratings">

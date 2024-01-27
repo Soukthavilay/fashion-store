@@ -77,9 +77,9 @@ function MyOrders(order) {
               {/* <span className="product-type">{orderItem.feature.color}</span> */}
             </div>
             <div className="order-product-price">
-              {total.toLocaleString("en-US", {
+              {total.toLocaleString("vi-VN", {
                 style: "currency",
-                currency: "USD",
+                currency: "VND",
               })}
             </div>
 

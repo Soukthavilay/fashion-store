@@ -45,10 +45,10 @@ function LoginForm() {
       localStorage.removeItem("accessToken");
       localStorage.setItem("accessToken", token);
 
-      if (isAdmin) {
-        window.location.href = "admin/createProduct";
-      } else {
+      if (isAdmin == false && token) {
         window.location.href = "/";
+      } else {
+        window.location.href = "admin/createProduct";
       }
     } catch (error) {
       toast.error(error.response.data.msg); // Display error message in ToastContainer

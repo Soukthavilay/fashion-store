@@ -56,11 +56,6 @@ const Home = () => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   console.log("ok");
-  //   console.log(statistics);
-  // }, [statistics]);
-
   return (
     <>
       <div className="dashboard">

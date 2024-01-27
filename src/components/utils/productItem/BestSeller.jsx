@@ -114,15 +114,15 @@ const BestSeller = () => {
                       <div className="product-item-detail">
                         <h3 className="product-name">
                           <Link target='_parent' to={`/detail/${_id}`}>
-                            <span>{title}</span>
+                            <span>{t(`${title}`)}</span>
                           </Link>
                         </h3>
                         <div className="product-detail">
                           <div className="product-detail-meta">
                             <p className="product-price">
-                              {new Intl.NumberFormat("en-US", {
+                              {new Intl.NumberFormat("vi-VN", {
                                 style: "currency",
-                                currency: "USD",
+                                currency: "VND",
                               }).format(price)}
                             </p>
                             <div className="product-ratings">

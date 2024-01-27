@@ -100,7 +100,7 @@ const Header = () => {
                     {searchResults.map((product) => (
                       <Link target="_parent" key={product._id} to={`/detail/${product._id}`}>
                         <div className="result-item">
-                          <p>{product.title}</p>
+                          <p>{t(`${product.title}`)}</p>
                           <img src={product.images.url} alt={"image-product"} width={30}/>
                         </div>
                       </Link>

@@ -3,7 +3,7 @@
     "labe-signIn": "ເຂົ້າສູ່ລະບົບ",
     "labe-signUp": "ລົງທະບຽນ",
     "labe-find-product": "ຄົ້ນຫາສິນຄ້າ",
-    "labe-intro": "ເລີ່ມຕົ້ນຂອງບໍລິສັດ Lao Tech",
+    "labe-intro": "ບໍລິສັດ Lao Fashion",
     "label-category-women": "ຍິງ",
     "label-category-men": "ຊາຍ",
     "label-category-sport": "ກິລາ",
@@ -119,7 +119,64 @@
     "label-option3":"ຕິດຕໍ່ຖ້າຫາກວ່າທ່ານຕ້ອງການ",
     "label-option4":"ເລືອກກ່ອງຂອງຂວັນຟຣີ",
     "productTitles":{
-        "taek":"moun"
+        "ao-thun":{
+            "ao-thun-cotton":"AIRism Cotton Loose Round Neck T-Shirt"
+        },
+        "ao-polo":{
+            "ao-thun-polo-dry":"ເສື້ອຍືດ POLO ແຫ້ງ"
+        },
+        "ao-ni":{
+            "ao-ni-co-mui": "ເສື້ອຢືດ Hooded Sweatshirt",
+            "ao-park-hai-mat":"ເສື້ອຍືດ POLO ແຫ້ງ"
+        },
+        "ao-so-mi":{
+            "jersy-ngan-tay":"ເສື້ອຢືດ Jersey ແຂນສັ້ນ ບໍ່ມີທາດເຫຼັກແຫ້ງ"
+        },
+        "quan-jean":{
+            "sieu-co-gian":"ໂສ້ງຢີນຍືດ Super"
+        },
+        "quan-casual":{
+            "heatech":"ຜ້າຝ້າຍອຸ່ນ HEATTECH"
+        },
+        "quan-short":{
+            "dang-slim-fit":"ໂສ້ງຂາສັ້ນຍືດຍາວ"
+        },
+        "do-mac-trong":{
+            "airism-quan-lot":"AIRism Low-Rise Boxer Briefs"
+        },
+        "do-mac-ngoai":{
+            "ao-park-hai-mat":"Parka ສອງດ້ານ"
+        }
+    },
+    "description":{
+        "ao-thun":{
+            "ao-thun-cotton": "ຜ້າ 'AIRism' ອ່ອນໆ. ການອອກແບບວ່າງຄົນອັບເດດ"
+        },
+        "ao-polo":{
+            "ao-thun-polo-dry":"ໂຄງສ້າງກ້ຽງໃຫ້ຄວາມຮູ້ສຶກສົດຊື່ນ. ຄໍເບິ່ງດີມີປຸ່ມຂຶ້ນ ຫຼື unfastened."
+        },
+        "ao-ni":{
+            "ao-ni-co-mui":"ການອອກແບບສອງດ້ານ. ຜ້າແພແມ່ນອ່ອນແລະສະດວກສະບາຍດ້ວຍຊັ້ນນອກທີ່ກັນນ້ໍາ.",
+            "ao-park-hai-mat":"ໂຄງສ້າງກ້ຽງໃຫ້ຄວາມຮູ້ສຶກສົດຊື່ນ. ຄໍເບິ່ງດີມີປຸ່ມຂຶ້ນ ຫຼື unfastened."
+        },
+        "ao-so-mi":{
+            "jersy-ngan-tay": "ອ່ອນ, ມີຄວາມຮູ້ສຶກສະດວກສະບາຍແລະຮູບລັກສະນະ elegant. ດ້ວຍເທກໂນໂລຍີ DRY, ມັນນໍາເອົາຄວາມຮູ້ສຶກທີ່ສະດວກສະບາຍແລະເຢັນ."
+        },
+        "quan-jean":{
+            "sieu-co-gian":"ຍືດໄດ້ຢ່າງບໍ່ຫນ້າເຊື່ອສໍາລັບການສະດວກສະບາຍ, ເຫມາະ snug. ປຸ່ມ tonal ຟຸ່ມເຟືອຍແລະ stitching ສະຫນອງລັກສະນະທີ່ຊັບຊ້ອນ."
+        },
+        "quan-casual":{
+            "heatech":"ປັບປຸງດ້ວຍປ້າຍການດູແລທີ່ພິມຢູ່ເທິງຫນ້າຜະລິດຕະພັນເພື່ອຊ່ວຍໃຫ້ທ່ານຮູ້ສຶກສະດວກສະບາຍຫຼາຍຂຶ້ນ. 1.5 ເທົ່າ* ອຸ່ນກວ່າ 'HEATTECH' ປົກກະຕິຂອງພວກເຮົາ."
+        },
+        "quan-short":{
+            "dang-slim-fit":"ຜ້າຝ້າຍ twill ມີຄວາມຍືດຫຍຸ່ນເພີ່ມຂຶ້ນເພື່ອສ້າງຄວາມຮູ້ສຶກທີ່ສະດວກສະບາຍ. ໂຄງສ້າງທີ່ສະຫງ່າງາມແລະຕັດກະທັດຮັດ."
+        },
+        "do-mac-trong":{
+            "airism-quan-lot":"AIRism 'ແມ່ນກ້ຽງສໍາລັບຄວາມຮູ້ສຶກສະດວກສະບາຍ, ອາກາດ. ການອອກແບບງາມແອວຕ່ໍາ."
+        },
+        "do-mac-ngoai":{
+            "ao-ni-co-mui": "ເນື້ອຜ້າລຽບມີເສັ້ນຕ້ານການຕິດຕົວ. hood ມີການອອກແບບ contoured stylish."
+        }
     },
     "categoryTitles":{
         "65ae67ef8b38bd5b6c4f22de": "T-shirt",
@@ -131,9 +188,5 @@
         "65ae6b204b4dc368f0898b16": "Underwear",
         "65ae6b354b4dc368f0898b1a": "Knitwear",
         "65ae6b404b4dc368f0898b1e": "Outerwear"
-    },
-    "productDescription":{
-
     }
-    
 }

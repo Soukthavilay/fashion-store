@@ -83,9 +83,6 @@ const RecommenderUser = () => {
     }
     return 0;
   };
-useEffect(()=>{
-    console.log(recommender)
-},[recommender])
   return (
     <>
       <div className="featured-product">
@@ -129,19 +126,19 @@ useEffect(()=>{
                           <div className="product-detail-meta">
                           {item.discountPercentage ? 
                               <div className="price-both">
-                                <span style={{ textDecoration: 'line-through' }}>{((item.price) / (1 - (item.discountPercentage / 100))).toLocaleString("en-US", {
+                                <span style={{ textDecoration: 'line-through' }}>{((item.price) / (1 - (item.discountPercentage / 100))).toLocaleString("vi-VN", {
                                   style: "currency",
-                                  currency: "USD",
+                                  currency: "VND",
                                 })}</span>
-                                <span className="product-price">{item.price.toLocaleString("en-US", {
+                                <span className="product-price">{item.price.toLocaleString("vi-VN", {
                                 style: "currency",
-                                currency: "USD",
+                                currency: "VND",
                               })}</span>
                               </div> : 
                               <span className="product-price">
-                                {item.price.toLocaleString("en-US", {
+                                {item.price.toLocaleString("vi-VN", {
                                 style: "currency",
-                                currency: "USD",
+                                currency: "VND",
                               })}
                               </span>
                             }

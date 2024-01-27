@@ -10,10 +10,7 @@ export const LanguageProvider = ({ children }) => {
   const changeLanguage = (newLanguage) => {
     i18n.changeLanguage(newLanguage);
     setLanguage(newLanguage);
-    console.log(newLanguage);
   };
-
-  console.log(language);
 
   return (
     <LanguageContext.Provider value={{ language, changeLanguage }}>

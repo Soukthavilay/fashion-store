@@ -130,7 +130,6 @@ const EditProduct = () => {
     const styleUpload = {
         display: images ? 'block' : 'none',
       };
-    console.log(edit);
   return (
     <>
         <div className="edit_product">

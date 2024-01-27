@@ -171,9 +171,9 @@ const OrderDetail = () => {
                         {t("label-subtotal")} ({data.listOrderItems.length})
                       </span>
                       <span className="order-summary-price_item-right">
-                        {data.total.toLocaleString("en-US", {
+                        {data.total.toLocaleString("vi-VN", {
                           style: "currency",
-                          currency: "USD",
+                          currency: "VND",
                         })}
                       </span>
                     </div>
@@ -182,7 +182,7 @@ const OrderDetail = () => {
                         {t("label-shipping-fee")}
                       </span>
                       <span className="order-summary-price_item-right">
-                        {data.shippingFee ? data.shippingFee : 0} USD
+                        {data.shippingFee ? data.shippingFee : 0} VND
                       </span>
                     </div>
                     <div className="order-summary-price_item total">
@@ -190,9 +190,9 @@ const OrderDetail = () => {
                         {t("label-total")}
                       </span>
                       <span className="order-summary-price_item-right">
-                        {data.total.toLocaleString("en-US", {
+                        {data.total.toLocaleString("vi-VN", {
                           style: "currency",
-                          currency: "USD",
+                          currency: "VND",
                         })}
                       </span>
                     </div>

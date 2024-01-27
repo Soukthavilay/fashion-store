@@ -51,12 +51,12 @@ const OrderShow = (orders) => {
           </div>
           <div className="product-cell price">
             <span className="cell-label">Price:</span>
-            {item.price} USD
+            {item.price} VND
           </div>
         </div></Link>
       ))}
       <span className="total-color">
-        <b>Total:</b> {order.total} USD
+        <b>Total:</b> {order.total} VND
       </span>
     </>
   );

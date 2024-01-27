@@ -3,7 +3,7 @@
     "labe-signIn": "Đăng Nhập",
     "labe-signUp": "Đăng Ký",
     "labe-find-product": "Tìm kiếm sản phẩm",
-    "labe-intro": "Thời trang của công ty Lào Tech",
+    "labe-intro": "công ty Lào fashion",
     "label-category-women": "Phụ Nữ",
     "label-category-men": "Nam",
     "label-category-sport": "Đồ thể thao",
@@ -120,7 +120,64 @@
     "label-option3":"Liên hệ nếu bạn muốn",
     "label-option4":"Chọn hộp quà miễn phí",
     "productTitles":{
-        "taek":"lal"
+        "ao-thun":{
+            "ao-thun-cotton":"AIRism Cotton Áo Thun Cổ Tròn Dáng Rộng"
+        },
+        "ao-polo":{
+            "ao-thun-polo-dry":"ÁO THUN POLO DRY"
+        },
+        "ao-ni":{
+            "ao-ni-co-mui": "Áo Nỉ Có Mũ Chui Đầu",
+            "ao-park-hai-mat":"ÁO THUN POLO DRY"
+        },
+        "ao-so-mi":{
+            "jersy-ngan-tay":"Áo Sơ Mi Dry Không Cần Ủi Vải Jersey Ngắn Tay"
+        },
+        "quan-jean":{
+            "sieu-co-gian":"Quần Jeans Siêu Co Giãn"
+        },
+        "quan-casual":{
+            "heatech":"HEATTECH Cotton Quần Tất Giữ Ấm"
+        },
+        "quan-short":{
+            "dang-slim-fit":"Quần Shorts Co Giãn Dáng Slim Fit"
+        },
+        "do-mac-trong":{
+            "airism-quan-lot":"AIRism Quần Lót Boxer Brief Cạp Thấp"
+        },
+        "do-mac-ngoai":{
+            "ao-park-hai-mat":"Áo Parka Hai Mặt"
+        }
+    },
+    "description":{
+        "ao-thun":{
+            "ao-thun-cotton": "Chất liệu vải 'AIRism' mềm mại. Kiểu dáng rộng thời trang"
+        },
+        "ao-polo":{
+            "ao-thun-polo-dry":"Kết cấu mịn màng mang lại cảm giác tươi mát. Cổ áo trông tuyệt vời khi được cài nút hoặc cởi ra."
+        },
+        "ao-ni":{
+            "ao-ni-co-mui":"Thiết kế hai mặt. Lớp lót mềm mại và thoải mái với lớp ngoài chống bám nước.",
+            "ao-park-hai-mat":"Kết cấu mịn màng mang lại cảm giác tươi mát. Cổ áo trông tuyệt vời khi được cài nút hoặc cởi ra."
+        },
+        "ao-so-mi":{
+            "jersy-ngan-tay": "Cảm giác mềm mại, thoải mái và vẻ ngoài thanh lịch. Với công nghệ DRY mang lại cảm giác thoải mái, mát mẻ."
+        },
+        "quan-jean":{
+            "sieu-co-gian":"Độ co giãn đáng kinh ngạc cho cảm giác thoải mái, vừa vặn. Các nút và đường khâu có tông màu sang trọng mang lại vẻ ngoài tinh tế."
+        },
+        "quan-casual":{
+            "heatech":"Được cải tiến với nhãn chăm sóc được in trên bề mặt sản phẩm giúp bạn thêm phần thoải mái hơn. Ấm hơn 1,5 lần* so với 'HEATTECH' thông thường của chúng tôi."
+        },
+        "quan-short":{
+            "dang-slim-fit":"Chất liệu cotton twill có độ co giãn tăng thêm tạo cảm giác thoải mái. Kết cấu thanh lịch và đường cắt mỏng."
+        },
+        "do-mac-trong":{
+            "airism-quan-lot":"AIRism' mượt mà mang lại cảm giác thoải mái, thoáng mát. Thiết kế cạp thấp đẹp mắt."
+        },
+        "do-mac-ngoai":{
+            "ao-ni-co-mui": "Kết cấu mịn với lớp lót chống vón cục. Mũ trùm đầu có kiểu dáng đường viền đầy phong cách."
+        }
     },
     "categoryTitles":{
         "65ae67ef8b38bd5b6c4f22de": "Áo Thun",

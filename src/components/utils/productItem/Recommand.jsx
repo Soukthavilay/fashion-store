@@ -121,19 +121,19 @@ const Recommand = () => {
                           <div className="product-detail-meta">
                             {discountPercentage ? 
                               <div className="price-both">
-                                <span style={{ textDecoration: 'line-through' }}>{((price) / (1 - (discountPercentage / 100))).toLocaleString("en-US", {
+                                <span style={{ textDecoration: 'line-through' }}>{((price) / (1 - (discountPercentage / 100))).toLocaleString("vi-VN", {
                                   style: "currency",
-                                  currency: "USD",
+                                  currency: "VND",
                                 })}</span>
-                                <span className="product-price">{price.toLocaleString("en-US", {
+                                <span className="product-price">{price.toLocaleString("vi-VN", {
                                 style: "currency",
-                                currency: "USD",
+                                currency: "VND",
                               })}</span>
                               </div> : 
                               <span className="product-price">
-                                {price.toLocaleString("en-US", {
+                                {price.toLocaleString("vi-VN", {
                                 style: "currency",
-                                currency: "USD",
+                                currency: "VND",
                               })}
                               </span>
                             }

@@ -138,25 +138,25 @@ function ProductList() {
                         </div>
                         <div className="product-item-detail">
                           <h3 className="product-name">
-                            <Link target='_parent' to={`/detail/${item._id}`}>{t(`productTitles.${item.title}`)}</Link>
+                            <Link target='_parent' to={`/detail/${item._id}`}>{t(`${item.title}`)}</Link>
                           </h3>
                           <div className="product-detail">
                             <div className="product-detail-meta">
                             {item.discountPercentage ? 
                               <div className="price-both">
-                                <span style={{ textDecoration: 'line-through' }}>{((item.price) / (1 - (item.discountPercentage / 100))).toLocaleString("en-US", {
+                                <span style={{ textDecoration: 'line-through' }}>{((item.price) / (1 - (item.discountPercentage / 100))).toLocaleString("vi-VN", {
                                   style: "currency",
-                                  currency: "USD",
+                                  currency: "VND",
                                 })}</span>
-                                <span className="product-price">{item.price.toLocaleString("en-US", {
+                                <span className="product-price">{item.price.toLocaleString("vi-VN", {
                                 style: "currency",
-                                currency: "USD",
+                                currency: "VND",
                                 })}</span>
                                 </div> : 
                                 <span className="product-price">
-                                  {item.price.toLocaleString("en-US", {
+                                  {item.price.toLocaleString("vi-VN", {
                                   style: "currency",
-                                  currency: "USD",
+                                  currency: "VND",
                                 })}
                                 </span>
                               }

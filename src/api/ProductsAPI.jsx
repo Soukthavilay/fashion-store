@@ -24,7 +24,8 @@ function ProductsAPI() {
         );
         const translatedProducts = res.data.products.map((product) => ({
           ...product,
-          title: t(`productTitles.${product.title}`),
+          title: t(`${product.title}`),
+          description: t(`${product.description}`),
         }));
         setProducts(translatedProducts);
         setResult(res.data.result);
