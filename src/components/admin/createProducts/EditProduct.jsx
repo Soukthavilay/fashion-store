@@ -164,6 +164,7 @@ const EditProduct = () => {
                     value={edit.title ? edit.title : "no have"}
                     onChange={handleChangeInput}
                     placeholder="Title"
+                    disabled
                 />
                 </div>
                 <div className="row">
@@ -176,6 +177,7 @@ const EditProduct = () => {
                     rows="10"
                     onChange={handleChangeInput}
                     placeholder="Description"
+                    disabled
                 />
                 </div>
                 <div className="row">
