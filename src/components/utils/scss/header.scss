@@ -6,16 +6,33 @@ header {
   padding: 10px;
   max-width: 1440px;
   margin: auto;
+  @media only screen and (max-width : 590px){
+    flex-direction: column;
+  }
 
   .header__logo {
     display: flex;
     flex-direction: column;
+    @media only screen and (max-width : 590px){
+      order: 1;
+      align-self: flex-start;
+    }
+  }
+  .header-search{
+    @media only screen and (max-width : 590px){
+      order: 2;
+      align-self: flex-start;
+    }
   }
 
   .header-right {
     display: flex;
     align-items: center;
     gap: 14px;
+    @media only screen and (max-width : 590px){
+      order: 3;
+      align-self: flex-start;
+    }
     .user-icon {
       height: 100%;
       width: 24px;
@@ -67,6 +84,9 @@ header {
 
     a {
       color: #3c3c3c;
+      label{
+        text-transform: uppercase;
+      }
     }
   }
 }

@@ -20,7 +20,7 @@ body {
   padding: 0;
   font-family: 'Noto Sans Lao', sans-serif;
 }
-input ,textarea {
+input ,textarea, select {
   font-family: 'Noto Sans Lao', sans-serif;
 }
 button, div{

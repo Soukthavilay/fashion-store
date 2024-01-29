@@ -5,10 +5,19 @@
   display: flex;
   column-gap: 30px;
   margin-top: 48px;
+  @media only screen and (max-width : 590px){
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 
   &-left {
     width: 50%;
     text-align: center;
+    @media only screen and (max-width : 590px){
+      width: 100%;
+    }
     img {
       width: 80%;
       object-fit: contain;
@@ -16,11 +25,21 @@
   }
   &-right {
     width: 50%;
+    @media only screen and (max-width : 590px){
+      width: 100%;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
     .product-name {
       font-size: 36px;
       line-height: 150%;
       margin: 0 0 16px;
+      @media only screen and (max-width : 590px){
+        margin: 0;
+      }
     }
 
     .product-price {
@@ -48,6 +67,9 @@
     .product-quantity {
       margin-top: 25px;
       display: flex;
+      @media only screen and (max-width : 590px){
+        margin: 0;
+      }
       .quantity-btn {
         border: none;
         outline: none;
@@ -94,6 +116,9 @@
         column-gap: 16px;
         cursor: pointer;
         align-items: center;
+        @media only screen and (max-width : 590px){
+          margin: 0;
+        }
         .size-item{
           width: 50px;
           padding: 4px;
@@ -125,6 +150,9 @@
       margin: 24px 0 56px;
       column-gap: 16px;
       cursor: pointer;
+      @media only screen and (max-width : 590px){
+        margin: 0;
+      }
       .product-color-item{
         display: flex;
         flex-direction:column;
@@ -164,9 +192,20 @@
   column-gap: 48px;
   &-left {
     width: 65%;
+    @media only screen and (max-width : 590px){
+      width: 100%;
+    }
+    .product-detail-content{
+      @media only screen and (max-width : 590px){
+        margin: 0 10px;
+      }
+    }
   }
   &-right {
     width: 35%;
+    @media only screen and (max-width : 590px){
+      display: none;
+    }
 
     .product-specs {
       &-item {
@@ -200,6 +239,9 @@
 .product-reviews {
   max-width: 1440px;
   margin: 36px auto 64px;
+  @media only screen and (max-width : 590px){
+    margin: 36px 10px 64px;
+  }
 
   &-summary {
     display: flex;

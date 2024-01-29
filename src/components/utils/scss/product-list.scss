@@ -15,7 +15,9 @@ $theme-color: #1464f4;
     max-width: 1440px;
     margin: auto;
     column-gap: 48px;
-
+    @media only screen and (max-width : 590px){
+      flex-wrap: wrap;
+    }
     .sidebar {
       padding: 0 20px 20px;
       width: 60%;
@@ -69,6 +71,9 @@ $theme-color: #1464f4;
     // row-gap: 24px;
     // max-width: 1440px;
     margin: 0 auto 36px;
+    @media only screen and (max-width : 590px){
+      grid-template-columns: repeat(1, 1fr);
+    }
 
     .product-item {
       display: none;
@@ -156,6 +161,9 @@ $theme-color: #1464f4;
   width: fit-content;
   margin: 30px auto;
   border-radius: 4px;
+  @media only screen and (max-width : 590px){
+    display: grid;
+  }
 
   &-item {
     display: flex;

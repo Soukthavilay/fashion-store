@@ -63,7 +63,7 @@ function OrderSummary() {
     <div className="order-summary">
       <StepTracker current={1} />
       <h2 className="order-summary-title">{t("label-cart-info")}</h2>
-      {total ? <>
+      {cart[0].quantity ? <>
         <p className="order-summary-subtitle">{t("label-check-your-cart")}</p>
 
       <div className="order-summary-product">
@@ -76,7 +76,7 @@ function OrderSummary() {
                   <h3>{item.title}</h3>
                 </div>
               </div>
-              <span style={{ backgroundColor: item.colors.colorCode }}>{item.colors.colorName}</span>
+              {/* <span style={{ backgroundColor: (item.colors.colorCode ? item.colors.colorCode : "#FFF") }}>{item.colors.colorName}</span> */}
               <div className="product-detail-quantity">
                 <div className="product-quantity">
                   <button

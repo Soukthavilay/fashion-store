@@ -76,20 +76,28 @@ const Recommand = () => {
     }
     return 0;
   };
+  const params = {
+    spaceBetween:50,
+    loop:true,
+    navigation:true,
+    className:"featured-product-slide",
+    modules:[Navigation],
+    breakpoints: {
+      590: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 4,
+      },
+    },
+  }
 
   return (
     <>
       <div className="featured-product">
         <p className="featured-product-title">{t('label-new-product')}</p>
         <div className="container-list">
-          {loading ? <LoadingSmall/> : <Swiper
-            spaceBetween={50}
-            loop={true}
-            slidesPerView={4}
-            navigation={true}
-            className="featured-product-slide"
-            modules={[Navigation]}
-          >
+          {loading ? <LoadingSmall/> : <Swiper {...params}>
             {products &&
               products.map((item) => {
                 const { _id, title, images, price ,sold,discountPercentage,discountExpiration} = item;

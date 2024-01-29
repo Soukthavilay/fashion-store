@@ -30,7 +30,6 @@ const Header = () => {
     const logoutUser = async () => {
         await axios.get('http://localhost:5000/user/logout');
         localStorage.removeItem("accessToken")
-        // window.location.href = '/';
         window.location.reload();
     };
 

@@ -3,6 +3,9 @@
   margin: auto;
   display: flex;
   column-gap: 36px;
+  @media only screen and (max-width : 590px){
+    flex-direction: column;  
+  }
 
   &-option {
     width: 25%;
@@ -10,6 +13,9 @@
     height: fit-content;
     background-color: #fafafa;
     margin-top: 32px;
+    @media only screen and (max-width : 590px){
+      width: 100%;  
+    }
 
     &-item {
       margin-bottom: 8px;
@@ -33,6 +39,9 @@
     margin-top: 32px;
     background-color: #fafafa;
     border-radius: 3px;
+    @media only screen and (max-width : 590px){
+      width: 100%;
+    }
 
     &-title {
       display: flex;
@@ -134,6 +143,11 @@
     .order-wrapper{
       display: flex;
       justify-content: space-between;
+      @media only screen and (max-width : 590px){
+        flex-direction: column;  
+        gap: 10px;
+        margin-bottom: 10px;
+      }
       .order-select{
         display: flex;
         gap: 5px;
@@ -210,6 +224,9 @@
 
           .product-type {
             font-size: 14px;
+            width: 30px;
+            display: flex;
+            height: 30px;
           }
         }
       }
@@ -259,6 +276,14 @@
         justify-content: space-between;
         column-gap: 16px;
         margin-bottom: 24px;
+        @media only screen and (max-width : 590px){
+          flex-direction: column;  
+        }
+        .order-product-info{
+          @media only screen and (max-width : 590px){
+            width: 100%;  
+          }
+        }
 
         &:last-child {
           margin-bottom: 0;
@@ -272,7 +297,13 @@
             margin-right: 24px;
           }
           &_detail {
-            
+            .product-type{
+              @media only screen and (max-width : 590px){
+                width: 30px;
+                display: flex;
+                height: 30px; 
+              }
+            }
           }
         }
 
@@ -375,6 +406,11 @@
 
 #popup-root .popup-overlay .popup-content .review-modal {
   height: fit-content !important;
+  @media only screen and (max-width : 590px){
+    left: 0;
+    top: 0;
+    min-width: 380px;
+  }
   .voucher-popup{
     ul{
       display: flex;

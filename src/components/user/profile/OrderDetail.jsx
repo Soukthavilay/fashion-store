@@ -116,7 +116,7 @@ const OrderDetail = () => {
                       <div className="order-product-info_detail">
                         <h3 className="product-name">{orderItem.title}</h3>
                         <span className="product-type" style={{ backgroundColor: orderItem.colors.colorName }}>
-                          {orderItem.colors.colorName}
+                          
                         </span>
                       </div>
                     </div>

@@ -95,6 +95,9 @@
     border: 1px solid rgba(129, 129, 129, 0.2);
     padding: 32px;
     border-radius: 5px;
+    @media only screen and (max-width : 590px){
+      
+    }
 
     .order-product-item {
       display: flex;
@@ -104,6 +107,9 @@
       border-bottom: 1px solid rgba(129, 129, 129, 0.2);
       padding-bottom: 16px;
       margin-bottom: 16px;
+      @media only screen and (max-width : 590px){
+        flex-direction: column;
+      }
 
       &:last-child {
         border-bottom: none;
@@ -115,8 +121,14 @@
         display: flex;
         align-items: center;
         width: 60%;
+        @media only screen and (max-width : 590px){
+          flex-direction: column;
+        }
         .product-name {
           width: 70%;
+          @media only screen and (max-width : 590px){
+            width: unset;
+          }
           h3 {
             margin: 0 0 0 16px;
           }
@@ -191,6 +203,10 @@
     display: flex;
     justify-content: space-between;
     margin: 48px auto;
+    @media only screen and (max-width : 590px){
+      width: calc(60% + 130px);
+      justify-content: space-around;
+    }
     button {
       width: 20%;
       a{
@@ -202,6 +218,9 @@
 
 .shipping-detail {
   margin-bottom: 36px;
+  @media only screen and (max-width : 590px){
+    margin: 5% 5%;   
+  }
 
   &-title {
     text-align: center;
@@ -275,5 +294,8 @@
   .btn {
     width: 20%;
     margin-top: 48px;
+    @media only screen and (max-width : 590px){
+      width: 35%;
+    }
   }
 }

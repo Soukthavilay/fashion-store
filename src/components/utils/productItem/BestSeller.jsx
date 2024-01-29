@@ -79,22 +79,28 @@ const BestSeller = () => {
     return 0;
   };
 
+  const params = {
+    spaceBetween:50,
+    loop:true,
+    navigation:true,
+    className:"featured-product-slide",
+    modules:[Navigation],
+    breakpoints: {
+      590: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 4,
+      },
+    },
+  }
+
   return (
     <>
       <div className="featured-product">
         <p className="featured-product-title">{t('label-best-sellers')}</p>
         <div className="container-list">
-          <Swiper
-            spaceBetween={50}
-            loop={true}
-            slidesPerView={4}
-            pagination={{
-              clickable: true,
-            }}
-            navigation={true}
-            className="featured-product-slide"
-            modules={[Navigation]}
-          >
+          <Swiper {...params}>
             {data &&
               data.map((item) => {
                 const { _id, title, images, price ,sold } = item;
