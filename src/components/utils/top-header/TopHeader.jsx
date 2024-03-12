@@ -8,7 +8,7 @@ const TopHeader = () => {
             <i className='fa fa-phone'></i>
             <label> +88012 3456 7894</label>
             <i className='fa fa-envelope'></i>
-            <label> BouphaphanSoukthavilay@ui-lib.com</label>
+            <label> Fashion@ui-lib.com</label>
             </div>
             {/* <div className='right row RText'>
             <label>Theme FAQ`s</label>
