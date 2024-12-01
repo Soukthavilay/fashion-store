@@ -48,14 +48,11 @@ const Header = () => {
         return (
           <>
             <div className="header-right">
+            <LanguageSwitcher/>
                 <Link target="_parent" to='/myInfo' className="user-sign">
-                    <label>{userDetail[0].name}</label>
-                    <div className="my-account">
-                    {t('account')} 
+                    <div className="user-icon">
+                      <img src={userDetail[0].avatar} alt={userDetail[0].avatar} width={40} height={40} />
                     </div>
-                </Link>
-                <Link to="/" onClick={logoutUser}>
-                    <MdLogout/>
                 </Link>
                 <div className="header-cart">
                     <Link target="_parent" to="/order-summary">
@@ -63,7 +60,9 @@ const Header = () => {
                         <span className="header-cart-count">{cartCount}</span>
                     </Link>
                 </div>
-                <LanguageSwitcher/>
+                <Link to="/" onClick={logoutUser}>
+                    <MdLogout/>
+                </Link>
             </div>
           </>
             

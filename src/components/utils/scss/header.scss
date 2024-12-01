@@ -34,8 +34,11 @@ header {
       align-self: flex-start;
     }
     .user-icon {
-      height: 100%;
-      width: 24px;
+      // height: 100%;
+      // width: 24px;
+      img {
+        border-radius: 50%;
+      }
     }
 
     &-user {
